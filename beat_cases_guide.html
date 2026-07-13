@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حالات دراسية تطبيقية | Snap Your Beat</title>
+<style>
+:root{
+  --navy:#16324f; --steel:#2c6e9b; --steel-light:#5a9bc4;
+  --bg:#f4f6f9; --card:#ffffff; --gray:#5b6b7b; --gray-light:#eef1f5;
+  --red:#c0392b; --red-bg:#fdecea; --red-border:#e74c3c;
+  --green:#1e7e4f; --green-bg:#e9f7ef; --green-border:#27ae60;
+  --amber:#a1660a; --amber-bg:#fef5e3; --amber-border:#f0a500;
+  --radius:14px; --shadow:0 4px 18px rgba(22,50,79,0.10);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:'Segoe UI', Tahoma, Arial, sans-serif;background:var(--bg);color:var(--navy);line-height:1.75;font-size:16px;}
+header.hero{background:linear-gradient(120deg, var(--navy) 0%, var(--steel) 65%, var(--steel-light) 100%);color:#fff;padding:46px 20px 60px;position:relative;overflow:hidden;text-align:center;}
+header.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 20%, rgba(255,255,255,0.12) 0, transparent 40%),radial-gradient(circle at 85% 80%, rgba(255,255,255,0.10) 0, transparent 45%);animation:drift 14s ease-in-out infinite alternate;}
+@keyframes drift{from{transform:translateY(0)}to{transform:translateY(-14px)}}
+header.hero h1{position:relative;font-size:2.1rem;margin:0 0 10px;font-weight:800;text-shadow:0 2px 10px rgba(0,0,0,0.15);}
+header.hero p.subtitle{position:relative;font-size:1.05rem;margin:0 0 6px;color:#eaf3fb;font-weight:500;}
+header.hero p.meta{position:relative;font-size:.9rem;color:#cfe3f2;margin-top:14px;}
+.badge-row{position:relative;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px;}
+.badge{background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.35);padding:6px 16px;border-radius:30px;font-size:.85rem;font-weight:600;}
+nav.toc{position:sticky;top:0;z-index:50;background:var(--navy);padding:10px 14px;display:flex;gap:8px;overflow-x:auto;white-space:nowrap;box-shadow:0 3px 10px rgba(0,0,0,0.15);}
+nav.toc a{color:#eaf3fb;text-decoration:none;font-size:.78rem;font-weight:600;padding:7px 11px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);transition:.2s;flex-shrink:0;}
+nav.toc a:hover{background:var(--steel);transform:translateY(-1px);}
+main{max-width:1000px;margin:0 auto;padding:30px 18px 80px;}
+section{margin-bottom:40px;scroll-margin-top:70px;}
+.section-title{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+.section-title .num{background:var(--navy);color:#fff;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;flex-shrink:0;box-shadow:var(--shadow);}
+.section-title h2{margin:0;font-size:1.3rem;color:var(--navy);border-bottom:3px solid var(--steel-light);padding-bottom:6px;flex:1;}
+.lead{background:var(--card);border-right:5px solid var(--steel);border-radius:var(--radius);padding:16px 20px;box-shadow:var(--shadow);margin-bottom:18px;font-size:.94rem;}
+.case-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:20px;overflow:hidden;border-top:5px solid var(--steel);}
+.case-card .ch{background:linear-gradient(90deg, var(--navy), var(--steel));color:#fff;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.case-card .ch h3{margin:0;font-size:1.1rem;color:#fff;}
+.case-card .ch span.tag{font-size:.72rem;font-weight:800;padding:4px 12px;border-radius:20px;background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.4);}
+.cb{padding:16px 20px;}
+.cb .presenting{background:var(--gray-light);border-radius:10px;padding:12px 16px;margin-bottom:12px;font-size:.92rem;}
+.cb .presenting b{color:var(--steel);display:block;margin-bottom:4px;}
+.cb table{width:100%;border-collapse:collapse;margin-top:8px;}
+.cb table td, .cb table th{padding:8px 10px;border-bottom:1px solid var(--gray-light);text-align:right;font-size:.88rem;vertical-align:top;}
+.cb table th{width:130px;color:var(--steel);font-weight:700;background:var(--gray-light);}
+.pill{display:inline-block;background:var(--steel-light);color:#fff;padding:2px 10px;border-radius:20px;font-size:.75rem;font-weight:700;margin:1px 2px;}
+.pill.dose{background:var(--navy);}
+.counsel{background:var(--green-bg);border-right:4px solid var(--green-border);border-radius:8px;padding:10px 14px;margin-top:8px;font-size:.88rem;}
+.counsel b{color:var(--green);}
+.contra{background:var(--amber-bg);border-right:4px solid var(--amber-border);border-radius:8px;padding:10px 14px;margin-top:8px;font-size:.88rem;}
+.contra b{color:var(--amber);}
+.redflag-note{background:var(--red-bg);border-right:4px solid var(--red-border);border-radius:8px;padding:10px 14px;margin-top:8px;font-size:.88rem;}
+.redflag-note b{color:var(--red);}
+.box{border-radius:var(--radius);padding:16px 20px;margin:14px 0;box-shadow:var(--shadow);}
+.box-amber{background:var(--amber-bg);border:2px solid var(--amber-border);}
+.box-amber h4{color:var(--amber);margin-top:0;}
+footer{text-align:center;padding:30px 15px 50px;color:var(--gray);font-size:.85rem;}
+footer b{color:var(--navy);}
+a.top-link{position:fixed;bottom:20px;left:20px;background:var(--navy);color:#fff;width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1.3rem;box-shadow:0 4px 14px rgba(0,0,0,0.25);z-index:60;transition:.2s;}
+a.top-link:hover{background:var(--steel);transform:translateY(-3px);}
+.case-card{animation:fadeUp .5s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>📋 حالات دراسية تطبيقية</h1>
+  <p class="subtitle">Snap Your Beat — سلسلة 1 و2 — 16 حالة واقعية بالجرعات والاستشارة</p>
+  <p class="meta">إعداد: فيصل عسيري (PharmD) | صيدلية النهدي | برنامج Smart Beats Training</p>
+  <div class="badge-row">
+    <span class="badge">📋 16 حالة واقعية</span>
+    <span class="badge">💊 الجرعات كما وردت</span>
+    <span class="badge">🎓 تحليل إكلينيكي لكل حالة</span>
+  </div>
+</header>
+
+<nav class="toc">
+  <a href="#case1">1️⃣ ألم ظهر</a>
+  <a href="#case2">2️⃣ التواء كاحل</a>
+  <a href="#case3">3️⃣ إسهال</a>
+  <a href="#case4">4️⃣ إسهال طفل</a>
+  <a href="#case5">5️⃣ بواسير</a>
+  <a href="#case6">6️⃣ حساسية عين</a>
+  <a href="#case7">7️⃣ فرط تصبغ</a>
+  <a href="#case8">8️⃣ كالو</a>
+  <a href="#case9">9️⃣ ضعف انتصاب</a>
+  <a href="#case10-16">🔟-1️⃣6️⃣ حالات إضافية</a>
+</nav>
+
+<main>
+
+<div class="lead">⚠️ <b>ملاحظة على المصدر:</b> هذه الحالات مأخوذة من ملف تدريبي مصوّر (صور شاشة)، وبعض التفاصيل النصية (خاصة الأسماء التجارية الدقيقة الظاهرة في صور العبوات) لم تكن قابلة للاستخراج بالكامل، لكن السيناريو الإكلينيكي والجرعات محفوظة بدقة من النص الأصلي.</div>
+
+<!-- CASE 1 -->
+<section id="case1">
+  <div class="case-card">
+    <div class="ch"><h3>الحالة 1 — ألم أسفل الظهر (Lower Back Pain)</h3><span class="tag">MSK</span></div>
+    <div class="cb">
+      <div class="presenting"><b>العرض:</b>مريض يشتكي ألم في الظهر ويحتاج مسكن ألم. لا يوجد دم بالبول ولا تنميل. الوزن 95 كغم والطول 172 سم (BMI في نطاق السمنة).</div>
+      <table>
+        <tr><th>خط العلاج</th><td>مرخي عضلات، مسكن ألم، مضاد التهاب موضعي (NSAID) أو Rubefacient، علاج حراري</td></tr>
+        <tr><th>الجرعات كما وردت</th><td>
+          <span class="pill dose">حبتان × 3 يوميًا</span> (مسكن/مرخي)<br>
+          <span class="pill dose">حبة واحدة × 3 يوميًا</span> (دواء ثانٍ)<br>
+          <span class="pill dose">قارورة واحدة قبل الفطور يوميًا</span><br>
+          <span class="pill dose">مغلّفان، يُذاب كل مغلف في كوب ماء بعد الوجبة</span><br>
+          <span class="pill dose">كبسولة واحدة مع كوب إلى كوبين ماء، 3 مرات يوميًا قبل الوجبات</span><br>
+          <span class="pill dose">رقعة (Patch) مرة واحدة يوميًا</span>
+        </td></tr>
+        <tr><th>علاج مكمّل</th><td>دعامة أسفل الظهر (Lumbosacral Support)، إنقاص الوزن، كمادات جل (Gel Pack)</td></tr>
+      </table>
+      <div class="counsel"><b>نصيحة المشورة:</b> نظرًا لزيادة الوزن (BMI في نطاق السمنة درجة أولى)، ربط خطة العلاج بنصيحة لإنقاص الوزن كعامل مساهم رئيسي في تكرار آلام الظهر.</div>
+      <div class="redflag-note"><b>علامة حمراء تم استبعادها:</b> غياب الدم بالبول والتنميل يستبعد أسبابًا كلوية أو عصبية أكثر خطورة — لولا غيابها لاستوجبت إحالة فورية.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE 2 -->
+<section id="case2">
+  <div class="case-card">
+    <div class="ch"><h3>الحالة 2 — التواء الكاحل (Ankle Sprain)</h3><span class="tag">إصابة رياضية</span></div>
+    <div class="cb">
+      <div class="presenting"><b>العرض:</b>التواء كاحل نتيجة لعب كرة قدم بالأمس، جاء بناءً على توصية زميل، يطلب تخفيف الألم والتورم.</div>
+      <table>
+        <tr><th>خط العلاج</th><td>مسكن ألم فموي، علاج موضعي مضاد التهاب + بروتوكول RICE (راحة، ثلج، ضغط، رفع)</td></tr>
+        <tr><th>الجرعات كما وردت</th><td>
+          <span class="pill dose">حبة واحدة × 3 يوميًا</span><br>
+          <span class="pill dose">حبتان × 3 يوميًا</span><br>
+          <span class="pill dose">طبقة موضعية مرتين يوميًا</span> على المنطقة المصابة<br>
+          <span class="pill dose">كبسولتان يوميًا مع الوجبات</span>
+        </td></tr>
+        <tr><th>علاج مكمّل</th><td>دعامة كاحل (Ankle Support)، أكياس ثلج (Ice Bags)، عكازات (Crutches) عند الحاجة</td></tr>
+      </table>
+      <div class="counsel"><b>نصيحة المشورة:</b> التأكيد على بروتوكول RICE في أول 48-72 ساعة، وتجنب الحرارة في المرحلة الحادة الأولى (الثلج فقط) لتقليل التورم.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE 3 -->
+<section id="case3">
+  <div class="case-card">
+    <div class="ch"><h3>الحالة 3 — إسهال مع ألم بطن (يسار أسفل)</h3><span class="tag">هضمي</span></div>
+    <div class="cb">
+      <div class="presenting"><b>العرض:</b>ألم بالجهة اليسرى من البطن، تكرار دخول الحمام، البراز قوامه خفيف، لا يوجد دم. العمر 35 سنة.</div>
+      <table>
+        <tr><th>خط العلاج</th><td>مضاد إسهال، بروبيوتك، إماهة</td></tr>
+        <tr><th>الجرعات كما وردت</th><td>
+          <span class="pill dose">حبة يوميًا</span><br>
+          <span class="pill dose">حبتان × 3 يوميًا</span><br>
+          <span class="pill dose">قرصان في البداية ثم قرص بعد كل نوبة إسهال</span><br>
+          <span class="pill dose">كبسولة يوميًا في ماء أو عصير مع الوجبة</span> (بروبيوتك)
+        </td></tr>
+      </table>
+      <div class="redflag-note"><b>يجب التأكيد دومًا:</b> غياب الدم بالبراز وغياب الحمى الشديدة قبل اعتبار الحالة قابلة للعلاج الذاتي — راجع بروتوكول استجواب الإسهال الكامل في مرجع الجهاز الهضمي.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE 4 -->
+<section id="case4">
+  <div class="case-card">
+    <div class="ch"><h3>الحالة 4 — إسهال وقيء عند طفل (8 أشهر)</h3><span class="tag">أطفال</span></div>
+    <div class="cb">
+      <div class="presenting"><b>العرض:</b>طفل رضيع عمره 8 أشهر، إسهال بدأ بالليل، تكرار حوالي 4 مرات، حرارة 37.8°م.</div>
+      <table>
+        <tr><th>خط العلاج</th><td>إماهة فموية، بروبيوتك للرضّع، مضاد للحمى الخفيفة إن لزم</td></tr>
+        <tr><th>الجرعات كما وردت</th><td>
+          <span class="pill dose">خمس نقاط يوميًا</span> (بروبيوتك للرضّع)<br>
+          <span class="pill dose">5 مل مرتين يوميًا (BID)</span><br>
+          <span class="pill dose">100-200 مل، أو 15 مل × 4 (QID) بعد كل نوبة قيء أو إسهال</span> (محلول إماهة)
+        </td></tr>
+      </table>
+      <div class="redflag-note"><b>علامة حمراء عند الرضّع:</b> أي علامات جفاف (قلة تبول، جفاف فم، خمول) عند رضيع تستوجب إحالة فورية نظرًا لسرعة تدهور حالة الجفاف في هذا العمر.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE 5 -->
+<section id="case5">
+  <div class="case-card">
+    <div class="ch"><h3>الحالة 5 — بواسير مع نزيف بسيط (Hemorrhoid)</h3><span class="tag">هضمي</span></div>
+    <div class="cb">
+      <div class="presenting"><b>العرض:</b>أعراض منذ 3 أيام، خروج كتلة من فتحة الشرج أثناء التبرز عادت لوحدها، وجود قطرة دم.</div>
+      <table>
+        <tr><th>خط العلاج</th><td>مقوٍّ للأوردة (Flavonoid)، تحميلة موضعية، كريم موضعي، مسكن ألم</td></tr>
+        <tr><th>الجرعات كما وردت</th><td>
+          <span class="pill dose">6 أقراص يوميًا لمدة 4 أيام، ثم 4 أقراص يوميًا لمدة 3 أيام</span> (بروتوكول دافلون القياسي)<br>
+          <span class="pill dose">5 غم في 250 مل، 3 مرات يوميًا (TID)</span><br>
+          <span class="pill dose">تحميلة مرة واحدة يوميًا لمدة أسبوع</span><br>
+          <span class="pill dose">غسل المنطقة ثم وضع الكريم لمدة ربع ساعة</span><br>
+          <span class="pill dose">حبة واحدة × 3 يوميًا</span> (مسكن)
+        </td></tr>
+      </table>
+      <div class="counsel"><b>نصيحة المشورة:</b> التأكيد أن الكتلة البارزة التي "تعود لوحدها" هي علامة درجة أخف من البواسير، لكن استمرار النزيف يستوجب متابعة إذا لم يتحسن خلال أسبوع.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE 6 -->
+<section id="case6">
+  <div class="case-card">
+    <div class="ch"><h3>الحالة 6 — حكة واحمرار العين (تحسسي)</h3><span class="tag">عيون/حساسية</span></div>
+    <div class="cb">
+      <div class="presenting"><b>العرض:</b>حكة واحمرار بالعين منذ الصباح، لا توجد إفرازات (فقط دموع بسيطة)، الجو غبار، رشح أنفي وحكة مصاحبة، لا توجد حرارة.</div>
+      <table>
+        <tr><th>التشخيص التفريقي</th><td>التهاب ملتحمة تحسسي (Allergic Conjunctivitis) + التهاب أنف تحسسي مصاحب — غياب الإفرازات القيحية ينفي السبب البكتيري</td></tr>
+        <tr><th>الجرعات كما وردت</th><td>
+          <span class="pill dose">حبة مرة يوميًا</span> (مضاد هيستامين فموي)<br>
+          <span class="pill dose">بختان في كل فتحة أنف، مرة يوميًا</span><br>
+          <span class="pill dose">قطرة أو قطرتان بالعين حسب الحاجة</span><br>
+          <span class="pill dose">بختان في كل فتحة أنف حسب الحاجة</span>
+        </td></tr>
+        <tr><th>علاج مكمّل</th><td>كمادات باردة للعين</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- CASE 7 -->
+<section id="case7">
+  <div class="case-card">
+    <div class="ch"><h3>الحالة 7 — فرط تصبغ جلدي (منطقة أغمق من الطبيعي)</h3><span class="tag">جلدية</span></div>
+    <div class="cb">
+      <div class="presenting"><b>العرض:</b>منطقة جلدية لونها أغمق من الطبيعي (احتمال فطري سابق ترك أثرًا، أو التهاب سابق).</div>
+      <table>
+        <tr><th>خط العلاج</th><td>علاج مرحلي: أولًا علاج السبب (مضاد فطري إن وجد)، ثم بعد الاستجابة الانتقال لعلاج تفتيح المنطقة</td></tr>
+        <tr><th>الجرعات كما وردت</th><td>
+          <span class="pill dose">مرتين يوميًا لمدة 5 أيام</span> (العلاج الأساسي)<br>
+          <span class="pill dose">حبة مرة يوميًا</span><br>
+          <span class="pill dose">بعد الاستجابة: غسول ومطهر للمكان يُستخدم لتفتيح المنطقة</span><br>
+          <span class="pill dose">ثم الاستمرار على كبسولة واحدة يوميًا</span>
+        </td></tr>
+      </table>
+      <div class="counsel"><b>نصيحة المشورة:</b> التوعية بأن تفتيح الجلد خطوة ثانية بعد شفاء السبب الأساسي، وليس علاجًا فوريًا متزامنًا.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE 8 -->
+<section id="case8">
+  <div class="case-card">
+    <div class="ch"><h3>الحالة 8 — سماكة جلدية بسبب الاحتكاك (كالو/Corn)</h3><span class="tag">جلدية</span></div>
+    <div class="cb">
+      <div class="presenting"><b>العرض:</b>سماكة جلدية بإصبع القدم الكبير نتيجة ارتداء حذاء جديد واحتكاك متكرر. المريض ليس مصابًا بالسكري (مهم لتحديد خيارات العلاج الآمنة).</div>
+      <table>
+        <tr><th>خط العلاج (خطوات)</th><td>
+          1) نقع المنطقة بالماء 5 دقائق ثم التجفيف<br>
+          2) فرك سطح المنطقة المصابة بالمبرد (File)<br>
+          3) وضع الفازلين حول المنطقة المصابة للحماية<br>
+          4) وضع محلول (مثل Avomack) على المنطقة وتركه حتى يجف<br>
+          5) تغطيته بلصقة طبية (Plaster)
+        </td></tr>
+      </table>
+      <div class="redflag-note"><b>ملاحظة إكلينيكية أساسية:</b> السؤال عن مرض السكري إلزامي قبل صرف أي علاج كيراتوليتيك للقدم — مريض السكري يُحال لطبيب/أخصائي قدم سكري ولا يُعالَج ذاتيًا بمواد حارقة للجلد نظرًا لخطر الجروح غير الملتئمة والعدوى.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE 9 -->
+<section id="case9">
+  <div class="case-card">
+    <div class="ch"><h3>الحالة 9 — وصفة Nebido مع أعراض جنسية مصاحبة</h3><span class="tag">صحة الرجل</span></div>
+    <div class="cb">
+      <div class="presenting"><b>العرض:</b>مريض معه وصفة طبية مكتوب فيها Nebido (Testosterone Undecanoate) والتشخيص "Infertility". عند السؤال، تبيّن أن لديه مشكلة في الانتصاب (Erection)، بالإضافة للقذف المبكر (Premature Ejaculation) وعدم وجود رغبة جنسية.</div>
+      <table>
+        <tr><th>الجرعات كما وردت</th><td>
+          <span class="pill dose">كبسولة 3 مرات يوميًا لمدة شهر، ثم كبسولة مرة واحدة يوميًا</span><br>
+          <span class="pill dose">كبسولة مرتين يوميًا مع الوجبة</span><br>
+          <span class="pill dose">حبة قبل العلاقة الزوجية بـ1-3 ساعات</span> (لضعف الانتصاب)<br>
+          <span class="pill dose">حبة قبل العلاقة الزوجية بنصف ساعة</span> (لعلاج آخر مصاحب)
+        </td></tr>
+      </table>
+      <div class="counsel"><b>نقطة تعليمية مهمة:</b> هذه حالة تظهر أهمية الاستجواب الشامل من الصيدلي — الوصفة الأصلية تذكر العقم فقط، لكن الاستجواب كشف 3 مشاكل جنسية إضافية مصاحبة تستوجب تنسيقًا علاجيًا متكاملًا وليس الاكتفاء بصرف الوصفة كما هي دون استفسار.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES 10-16 -->
+<section id="case10-16">
+  <div class="section-title"><span class="num">✚</span><h2>حالات إضافية (10-16) — ملخص سريع</h2></div>
+
+  <div class="case-card">
+    <div class="ch"><h3>الحالة 10 — صداع مع احتقان أنفي</h3><span class="tag">تنفسي</span></div>
+    <div class="cb">
+      <div class="presenting"><b>العرض:</b>بداية الأعراض صباح اليوم، مريضة عمرها 35 سنة، سكري، لا يوجد صداع شديد يستدعي القلق.</div>
+      <table>
+        <tr><th>الجرعات كما وردت</th><td>
+          <span class="pill dose">بختان في كل فتحة أنف مرة يوميًا</span><br>
+          <span class="pill dose">حبة مرة يوميًا</span><br>
+          <span class="pill dose">بختان في كل فتحة أنف حسب الحاجة</span>
+        </td></tr>
+      </table>
+      <div class="redflag-note"><b>ملاحظة:</b> كون المريضة سكرية يستوجب الانتباه لمزيلات الاحتقان الفموية المحتوية على السودوإيفيدرين لأنها قد ترفع سكر الدم وضغط الدم — يُفضل تفضيل العلاج الموضعي الأنفي.</div>
+    </div>
+  </div>
+
+  <div class="case-card">
+    <div class="ch"><h3>الحالة 11 — عدوى تنفسية علوية عند طفلين (4 و7 سنوات)</h3><span class="tag">أطفال</span></div>
+    <div class="cb">
+      <div class="presenting"><b>العرض:</b>طفل 4 سنوات وطفل 7 سنوات، ارتفاع طفيف بالحرارة (37.8°م) مع كحة وألم بالحلق، سعال من 3 أيام واحتقان من يومين.</div>
+      <table>
+        <tr><th>الجرعات (طفل 4 سنوات)</th><td>
+          <span class="pill dose">5 مل مرة يوميًا (OD)</span><br>
+          <span class="pill dose">5 مل × 4 يوميًا (QID)</span><br>
+          <span class="pill dose">2.5 مل × 3 يوميًا (TID)</span><br>
+          <span class="pill dose">قطرتان بكل جانب، 3-5 أيام (TID)</span>
+        </td></tr>
+        <tr><th>الجرعات (طفل 7 سنوات)</th><td>
+          <span class="pill dose">5 مل × 3 يوميًا (TID)</span><br>
+          <span class="pill dose">9 مل × 4 يوميًا (QID)</span><br>
+          <span class="pill dose">2.5 مل × 4 يوميًا (QID)</span>
+        </td></tr>
+      </table>
+      <div class="counsel"><b>نصيحة المشورة:</b> التأكيد على الفرق الدقيق بالجرعة بين الطفلين حسب العمر/الوزن — خطأ شائع هو إعطاء نفس الجرعة لطفلين بفارق عمري كهذا.</div>
+    </div>
+  </div>
+
+  <div class="case-card">
+    <div class="ch"><h3>الحالة 12 — كحة وإفرازات أنفية خلفية (Post-nasal drip)</h3><span class="tag">تنفسي</span></div>
+    <div class="cb">
+      <div class="presenting"><b>العرض:</b>كحة وألم حلق، إفرازات تنزل من الأنف للحلق (Post-nasal drip) كسبب للكحة.</div>
+      <table><tr><td colspan="1">ⓘ تفاصيل الجرعات في هذه الحالة لم تكن واضحة بالكامل في المصدر المصوّر — يُنصح بمراجعة بروتوكول علاج الكحة الناتجة عن الإفرازات الأنفية الخلفية القياسي (مضاد هيستامين جيل أول + مزيل احتقان).</td></tr></table>
+    </div>
+  </div>
+
+  <div class="case-card">
+    <div class="ch"><h3>الحالة 13 — إفرازات مهبلية بيضاء متجبنة (Vaginal Thrush)</h3><span class="tag">صحة المرأة</span></div>
+    <div class="cb">
+      <div class="presenting"><b>العرض:</b>حكة وإفرازات في المنطقة الحساسة، القوام كريمي/متجبن — نمط كلاسيكي للعدوى الفطرية المهبلية (Candidiasis).</div>
+      <table><tr><td colspan="1">خط العلاج القياسي: مضاد فطريات مهبلي (Clotrimazole/Miconazole) تحميلة أو كريم ± جرعة فموية واحدة من Fluconazole حسب الحالة والتاريخ الطبي.</td></tr></table>
+      <div class="redflag-note"><b>يجب استبعاد:</b> الحمل (بعض العلاجات الفموية ممنوعة)، تكرار العدوى أكثر من 4 مرات/سنة (يستوجب إحالة لاستبعاد سكري غير مشخّص).</div>
+    </div>
+  </div>
+
+  <div class="case-card">
+    <div class="ch"><h3>الحالة 14 — وصفة سكري متعددة الأدوية</h3><span class="tag">وصفة طبية</span></div>
+    <div class="cb">
+      <div class="presenting"><b>الوصفة تشمل:</b></div>
+      <table>
+        <tr><th>Ryzodeg</th><td>أنسولين مركّب (طويل + سريع المفعول)</td></tr>
+        <tr><th>Vipidia</th><td>Alogliptin — مثبط DPP-4 لعلاج السكري النوع الثاني</td></tr>
+        <tr><th>Glucophage</th><td>Metformin — خط أول لعلاج السكري النوع الثاني</td></tr>
+        <tr><th>Cymbalta</th><td>Duloxetine — مضاد اكتئاب SNRI، يُستخدم أيضًا لاعتلال الأعصاب السكري المؤلم</td></tr>
+      </table>
+      <div class="counsel"><b>القيمة المضافة (Add Value) للصيدلي:</b> التأكد من تقنية استخدام قلم الأنسولين، التوعية بعلامات نقص السكر، والتحقق من عدم تكرار نفس فئة الدواء دون داعٍ.</div>
+    </div>
+  </div>
+
+  <div class="case-card">
+    <div class="ch"><h3>الحالة 15 — وصفة قلبية متعددة الأدوية</h3><span class="tag">وصفة طبية</span></div>
+    <div class="cb">
+      <div class="presenting"><b>الوصفة تشمل:</b></div>
+      <table>
+        <tr><th>Livazo</th><td>Pitavastatin — لعلاج الكوليسترول</td></tr>
+        <tr><th>Eliquis</th><td>Apixaban — مميع دم (مضاد تخثر فموي مباشر DOAC)</td></tr>
+        <tr><th>Sevikar</th><td>Olmesartan + Amlodipine — لعلاج ضغط الدم</td></tr>
+        <tr><th>Juspirin</th><td>Aspirin (جرعة منخفضة) — مضاد صفائح دموية</td></tr>
+      </table>
+      <div class="redflag-note"><b>تنبيه تداخل دوائي مهم:</b> وجود Eliquis (مميع دم قوي) مع Aspirin معًا يزيد خطر النزيف بشكل ملحوظ — يستوجب التأكد أن هذا الجمع مقصود من الطبيب المعالج وليس خطأ في الوصفة، والتنبيه على علامات النزيف للمريض.</div>
+    </div>
+  </div>
+
+  <div class="case-card">
+    <div class="ch"><h3>الحالة 16 — وصفة هرمونية لسن اليأس</h3><span class="tag">وصفة طبية</span></div>
+    <div class="cb">
+      <div class="presenting"><b>الوصفة تشمل:</b></div>
+      <table>
+        <tr><th>Livial</th><td>Tibolone — علاج هرموني لأعراض سن اليأس (هبات الحرارة، جفاف مهبلي)</td></tr>
+      </table>
+      <div class="counsel"><b>نصيحة المشورة:</b> التأكيد على المتابعة الدورية (فحوصات الثدي والرحم) أثناء العلاج الهرموني البديل، والتحري عن موانع الاستخدام مثل تاريخ سرطان الثدي أو الجلطات.</div>
+    </div>
+  </div>
+
+</section>
+
+<div class="box box-amber">
+  <h4>📌 الدرس التعليمي العام من هذه السلسلة</h4>
+  يظهر عبر الحالات 1-16 نمط متكرر: <b>الاستجواب الدقيق قد يكشف مشاكل مصاحبة لم تكن مذكورة في الطلب الأصلي</b> (كما في الحالة 9)، وأن <b>مراجعة الوصفات متعددة الأدوية</b> (الحالات 14-16) فرصة ذهبية للصيدلي لإضافة قيمة حقيقية عبر التحقق من التداخلات والتكرار العلاجي والتثقيف الصحيح حول طريقة الاستخدام.
+</div>
+
+</main>
+
+<footer>
+  مرجع تدريبي إكلينيكي — <b>حالات دراسية تطبيقية (Snap Your Beat)</b><br>
+  إعداد: فيصل عسيري (PharmD) | Smart Beats Training Program
+</footer>
+
+<a href="#case1" class="top-link" title="العودة للأعلى">↑</a>
+
+</body>
+</html>

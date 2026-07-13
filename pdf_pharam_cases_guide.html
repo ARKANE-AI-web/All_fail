@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حالات دراسية موسّعة | مرجع الصيدلي التطبيقي</title>
+<style>
+:root{
+  --navy:#16324f; --steel:#2c6e9b; --steel-light:#5a9bc4;
+  --bg:#f4f6f9; --card:#ffffff; --gray:#5b6b7b; --gray-light:#eef1f5;
+  --red:#c0392b; --red-bg:#fdecea; --red-border:#e74c3c;
+  --green:#1e7e4f; --green-bg:#e9f7ef; --green-border:#27ae60;
+  --amber:#a1660a; --amber-bg:#fef5e3; --amber-border:#f0a500;
+  --radius:14px; --shadow:0 4px 18px rgba(22,50,79,0.10);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:'Segoe UI', Tahoma, Arial, sans-serif;background:var(--bg);color:var(--navy);line-height:1.75;font-size:16px;}
+header.hero{background:linear-gradient(120deg, var(--navy) 0%, var(--steel) 65%, var(--steel-light) 100%);color:#fff;padding:46px 20px 60px;position:relative;overflow:hidden;text-align:center;}
+header.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 20%, rgba(255,255,255,0.12) 0, transparent 40%),radial-gradient(circle at 85% 80%, rgba(255,255,255,0.10) 0, transparent 45%);animation:drift 14s ease-in-out infinite alternate;}
+@keyframes drift{from{transform:translateY(0)}to{transform:translateY(-14px)}}
+header.hero h1{position:relative;font-size:2.1rem;margin:0 0 10px;font-weight:800;text-shadow:0 2px 10px rgba(0,0,0,0.15);}
+header.hero p.subtitle{position:relative;font-size:1.05rem;margin:0 0 6px;color:#eaf3fb;font-weight:500;}
+header.hero p.meta{position:relative;font-size:.9rem;color:#cfe3f2;margin-top:14px;}
+.badge-row{position:relative;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px;}
+.badge{background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.35);padding:6px 16px;border-radius:30px;font-size:.85rem;font-weight:600;}
+nav.toc{position:sticky;top:0;z-index:50;background:var(--navy);padding:10px 14px;display:flex;gap:8px;overflow-x:auto;white-space:nowrap;box-shadow:0 3px 10px rgba(0,0,0,0.15);}
+nav.toc a{color:#eaf3fb;text-decoration:none;font-size:.78rem;font-weight:600;padding:7px 11px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);transition:.2s;flex-shrink:0;}
+nav.toc a:hover{background:var(--steel);transform:translateY(-1px);}
+main{max-width:1000px;margin:0 auto;padding:30px 18px 80px;}
+section{margin-bottom:40px;scroll-margin-top:70px;}
+.section-title{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+.section-title .num{background:var(--navy);color:#fff;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;flex-shrink:0;box-shadow:var(--shadow);}
+.section-title h2{margin:0;font-size:1.3rem;color:var(--navy);border-bottom:3px solid var(--steel-light);padding-bottom:6px;flex:1;}
+.lead{background:var(--card);border-right:5px solid var(--steel);border-radius:var(--radius);padding:16px 20px;box-shadow:var(--shadow);margin-bottom:18px;font-size:.94rem;}
+.case-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:20px;overflow:hidden;border-top:5px solid var(--steel);}
+.case-card .ch{background:linear-gradient(90deg, var(--navy), var(--steel));color:#fff;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.case-card .ch h3{margin:0;font-size:1.1rem;color:#fff;}
+.case-card .ch span.tag{font-size:.72rem;font-weight:800;padding:4px 12px;border-radius:20px;background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.4);}
+.cb{padding:16px 20px;}
+.cb .presenting{background:var(--gray-light);border-radius:10px;padding:12px 16px;margin-bottom:12px;font-size:.9rem;}
+.cb .presenting b{color:var(--steel);display:block;margin-bottom:4px;}
+.cb table{width:100%;border-collapse:collapse;margin-top:8px;}
+.cb table td, .cb table th{padding:8px 10px;border-bottom:1px solid var(--gray-light);text-align:right;font-size:.88rem;vertical-align:top;}
+.cb table th{width:150px;color:var(--steel);font-weight:700;background:var(--gray-light);}
+.cb ol{margin:6px 0;padding-right:20px;font-size:.9rem;}
+.cb ol li{margin-bottom:4px;}
+.counsel{background:var(--green-bg);border-right:4px solid var(--green-border);border-radius:8px;padding:10px 14px;margin-top:8px;font-size:.88rem;}
+.counsel b{color:var(--green);}
+.redflag-note{background:var(--red-bg);border-right:4px solid var(--red-border);border-radius:8px;padding:10px 14px;margin-top:8px;font-size:.88rem;}
+.redflag-note b{color:var(--red);}
+.contra{background:var(--amber-bg);border-right:4px solid var(--amber-border);border-radius:8px;padding:10px 14px;margin-top:8px;font-size:.88rem;}
+.contra b{color:var(--amber);}
+footer{text-align:center;padding:30px 15px 50px;color:var(--gray);font-size:.85rem;}
+footer b{color:var(--navy);}
+a.top-link{position:fixed;bottom:20px;left:20px;background:var(--navy);color:#fff;width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1.3rem;box-shadow:0 4px 14px rgba(0,0,0,0.25);z-index:60;transition:.2s;}
+a.top-link:hover{background:var(--steel);transform:translateY(-3px);}
+.case-card{animation:fadeUp .5s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>📋 حالات دراسية موسّعة (4-13)</h1>
+  <p class="subtitle">تشخيص، خط علاج، وعلاج مكمّل لكل حالة — من ملف تدريبي شامل</p>
+  <p class="meta">إعداد: فيصل عسيري (PharmD) | صيدلية النهدي | برنامج Smart Beats Training</p>
+  <div class="badge-row">
+    <span class="badge">📋 10 حالات مفصّلة</span>
+    <span class="badge">🎯 تشخيص + خط علاج + مكمّل</span>
+  </div>
+</header>
+
+<nav class="toc">
+  <a href="#case4">4️⃣ ألم ظهر</a>
+  <a href="#case5">5️⃣ التواء كاحل</a>
+  <a href="#case6">6️⃣ فطريات مهبلية</a>
+  <a href="#case7">7️⃣ إسهال</a>
+  <a href="#case8">8️⃣ إمساك/قولون</a>
+  <a href="#case9">9️⃣ بواسير</a>
+  <a href="#case10">🔟 حساسية عين</a>
+  <a href="#case11">1️⃣1️⃣ ألم أذن</a>
+  <a href="#case12">1️⃣2️⃣ كالو قدم</a>
+  <a href="#smoking">🚬 إقلاع تدخين</a>
+</nav>
+
+<main>
+
+<div class="lead">⚠️ <b>ملاحظة على المصدر:</b> هذا المحتوى مستخرج من ملف تدريبي كبير (45 صفحة) يتضمن صورًا لعبوات أدوية بجانب النص. تفاصيل الأسماء التجارية الدقيقة الظاهرة في الصور غير متوفرة حاليًا، لكن التشخيص وخط العلاج ومعطيات الحالة السريرية محفوظة كما وردت في النص الأصلي.</div>
+
+<!-- CASE 4 -->
+<section id="case4">
+  <div class="case-card">
+    <div class="ch"><h3>الحالة 4 — ألم أسفل الظهر (Lower Back Pain)</h3><span class="tag">MSK</span></div>
+    <div class="cb">
+      <div class="presenting"><b>معطيات الحالة:</b>عمر المريض حوالي 45 سنة، لا يوجد تنميل، الوزن 95 كغم والطول 170 سم (BMI: 32.9 — سمنة درجة أولى).</div>
+      <table>
+        <tr><th>التشخيص</th><td>Lower Back Pain (ألم أسفل الظهر)</td></tr>
+        <tr><th>خط العلاج</th><td>
+          <ol>
+            <li>مرخي عضلات (Muscle Relaxant)</li>
+            <li>مسكن ألم (Analgesia)</li>
+            <li>مضاد التهاب موضعي (Topical NSAID) أو Rubefacient</li>
+            <li>علاج حراري (Heat Therapy)</li>
+          </ol>
+        </td></tr>
+        <tr><th>العلاج المكمّل</th><td>دعامة أسفل الظهر (Lumbosacral Support)، إنقاص الوزن، كمادات جل (Gel Pack)</td></tr>
+      </table>
+      <div class="counsel"><b>نصيحة المشورة:</b> نظرًا لـBMI في نطاق السمنة درجة أولى (32.9)، ربط العلاج بخطة إنقاص وزن طويلة الأمد كعامل رئيسي في الوقاية من تكرار آلام الظهر.</div>
+      <div class="redflag-note"><b>ملاحظة:</b> غياب التنميل يستبعد اشتباه انضغاط عصبي، لكن لو ظهر تنميل أو ضعف بالأطراف السفلية لاحقًا يستوجب إحالة فورية.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE 5 -->
+<section id="case5">
+  <div class="case-card">
+    <div class="ch"><h3>الحالة 5 — التواء الكاحل (Ankle Sprain)</h3><span class="tag">إصابة رياضية</span></div>
+    <div class="cb">
+      <div class="presenting"><b>معطيات الحالة:</b>مريض عمره 50 سنة تقريبًا، إصابة بالكاحل مع ألم وتورم وتغير لون ثابت في المنطقة.</div>
+      <table>
+        <tr><th>التشخيص</th><td>Ankle Sprain (التواء الكاحل)</td></tr>
+        <tr><th>خط العلاج</th><td>
+          <ol>
+            <li>مسكن ألم فموي (Oral Analgesia)</li>
+            <li>علاج موضعي مضاد التهاب + بروتوكول RICE</li>
+          </ol>
+        </td></tr>
+        <tr><th>العلاج المكمّل</th><td>دعامة كاحل (Ankle Support)، أكياس ثلج (Ice Bags)، عكازات (Crutches) عند الحاجة</td></tr>
+      </table>
+      <div class="counsel"><b>نصيحة المشورة:</b> يُستخدم منتج مضاد الالتهاب المستخدم بحذر لتجنب ازدواجية المادة الفعالة (مثال: عدم الجمع بين لصقة ديكلوفيناك موضعية وديكلوفيناك فموي في نفس الوقت).</div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE 6 -->
+<section id="case6">
+  <div class="case-card">
+    <div class="ch"><h3>الحالة 6 — عدوى فطرية مهبلية (Fungal Vaginitis / Candidiasis)</h3><span class="tag">صحة المرأة</span></div>
+    <div class="cb">
+      <div class="presenting"><b>معطيات الحالة:</b>تعاني من حكة، وإفرازات بيضاء تشبه القوام المتجبن، بدون رائحة قوية، وهذه أول مرة تحدث لها الأعراض.</div>
+      <table>
+        <tr><th>التشخيص</th><td>Fungal Vaginitis (Candidiasis)</td></tr>
+        <tr><th>خط العلاج</th><td>
+          <ol>
+            <li>مضاد هيستامين (Antihistamine) للحكة</li>
+            <li>كورتيزون موضعي + مضاد فطريات موضعي</li>
+            <li>غسول مهبلي محدود الاستخدام (Limited Intimate Wash)</li>
+            <li>غسول يومي للمنطقة الحساسة (Daily Intimate Wash)</li>
+            <li>قرص/تحميلة مهبلية (Intra-vaginal Tablet)</li>
+          </ol>
+        </td></tr>
+      </table>
+      <div class="redflag-note"><b>إحالة إذا:</b> هذه أول نوبة (كما في هذه الحالة) بدون تاريخ سابق — إذا تكررت العدوى أكثر من 4 مرات سنويًا، يجب إحالة لاستبعاد سكري غير مشخّص أو أسباب أخرى.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE 7 -->
+<section id="case7">
+  <div class="case-card">
+    <div class="ch"><h3>الحالة 7 — إسهال حاد (Acute Diarrhea)</h3><span class="tag">هضمي</span></div>
+    <div class="cb">
+      <div class="presenting"><b>معطيات الحالة:</b>عمر المريض 53 سنة، حرارة 37.3°م، الوزن 67 كغم، بدأت الأعراض أمس مساءً، لم يتناول أي علاج للإسهال حتى الآن. لا يوجد دم بالبراز (البراز مائي)، إحساس بالغثيان، لم يتناول مضادًا حيويًا مؤخرًا. عدد مرات الإسهال حتى الآن 5 مرات تقريبًا. لا يوجد جفاف لكن يوجد إرهاق وتعب.</div>
+      <table>
+        <tr><th>التقييم الإكلينيكي</th><td>إسهال حاد مائي، بدون دم، بدون جفاف واضح، بدون تاريخ مضاد حيوي حديث — نمط يتوافق مع إسهال فيروسي/غذائي حاد بسيط</td></tr>
+        <tr><th>خط العلاج المتوقع</th><td>محلول إماهة فموية، بروبيوتك، مضاد إسهال حسب الحاجة (بشرط غياب الدم والحمى الشديدة)</td></tr>
+      </table>
+      <div class="counsel"><b>نصيحة المشورة:</b> التأكيد على شرب سوائل كافية رغم غياب علامات الجفاف الظاهرة حاليًا، لأن الإرهاق والتعب علامة مبكرة قد تسبق الجفاف الواضح.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE 8 -->
+<section id="case8">
+  <div class="case-card">
+    <div class="ch"><h3>الحالة 8 — مغص وانتفاخ مع إمساك (اشتباه قولون عصبي)</h3><span class="tag">هضمي</span></div>
+    <div class="cb">
+      <div class="presenting"><b>معطيات الحالة:</b>يعاني من مغص وانتفاخ، الألم موجود بالجانب الأيسر أسفل البطن، لا يوجد غثيان، عمر المريض 29 سنة. لا توجد حموضة لكن يوجد إمساك متكرر منذ 3 أيام. الموضوع ليس جديدًا لكنه جديد في هذه المنطقة تحديدًا، لا توجد أدوية لأمراض أخرى. المغص يزيد مع التوتر والقلق. سبق تشخيصه بنفس الأمر منذ أيام الجامعة.</div>
+      <table>
+        <tr><th>التقييم الإكلينيكي</th><td>نمط متكرر مرتبط بالتوتر، تشخيص سابق مشابه — يتوافق مع القولون العصبي (IBS) مع غلبة الإمساك</td></tr>
+        <tr><th>العلاج المكمّل المذكور</th><td>الخرشوف (Artichoke) يساعد على عملية الهضم</td></tr>
+      </table>
+      <div class="counsel"><b>نصيحة المشورة:</b> بما أن الحالة مشخّصة سابقًا ومرتبطة بنمط معروف (توتر/قلق)، التركيز على تعديل نمط الحياة وتقليل التوتر بجانب العلاج الدوائي المساعد.</div>
+      <div class="redflag-note"><b>يجب التأكد دومًا:</b> حتى مع تشخيص سابق لـIBS، ظهور أعراض جديدة كليًا (دم بالبراز، فقدان وزن، تغيّر نمط الألم) يستوجب إعادة تقييم وليس افتراض استمرار نفس الحالة القديمة تلقائيًا.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE 9 -->
+<section id="case9">
+  <div class="case-card">
+    <div class="ch"><h3>الحالة 9 — ألم وقطرات دم عند التبرز (اشتباه بواسير)</h3><span class="tag">هضمي</span></div>
+    <div class="cb">
+      <div class="presenting"><b>معطيات الحالة:</b>يعاني من ألم متركز عند فتحة الشرج، مهنة المريض محاسب (عمل مكتبي/جلوس طويل). يعاني أيضًا من إمساك منذ حوالي 3 أيام، والإمساك متكرر لديه. لا يوجد غثيان أو استفراغ. لا يوجد نزيف غزير لكن يوجد نقطتان من الدم في التواليت. حاول الضغط على نفسه قليلاً ليخرج البراز. الشهية طبيعية. يستخدم دواء Adalat (Nifedipine) لعلاج الضغط. الألم بدأ فقط بعد محاولة التبرز اليوم بمجهود، وخرج جزء من فتحة الشرج ثم عاد لوحده.</div>
+      <table>
+        <tr><th>التقييم الإكلينيكي</th><td>نمط كلاسيكي لبواسير درجة أولى/ثانية (كتلة خرجت وعادت لوحدها + دم بسيط + إمساك وشد أثناء التبرز)</td></tr>
+        <tr><th>ملاحظة دوائية</th><td>المريض يستخدم Adalat (نيفيديبين، حاصر قنوات الكالسيوم) لعلاج ضغط الدم — بعض حاصرات قنوات الكالسيوم قد تُساهم في الإمساك كأثر جانبي</td></tr>
+      </table>
+      <div class="counsel"><b>نصيحة المشورة:</b> بما أن المهنة تتطلب جلوسًا طويلاً والإمساك متكرر، ربط العلاج بنصائح نمط الحياة (الحركة الدورية، زيادة الألياف والسوائل) بجانب علاج البواسير الموضعي.</div>
+      <div class="redflag-note"><b>يجب المتابعة:</b> إذا استمر النزيف أو تكرر بشكل متكرر رغم العلاج، أو إذا لوحظ اختلاط الدم بالبراز نفسه (وليس فقط على السطح)، تستوجب إحالة لاستبعاد أسباب أخرى.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE 10 -->
+<section id="case10">
+  <div class="case-card">
+    <div class="ch"><h3>الحالة 10 — احمرار وإفرازات صفراء بالعين (اشتباه التهاب ملتحمة بكتيري)</h3><span class="tag">عيون</span></div>
+    <div class="cb">
+      <div class="presenting"><b>معطيات الحالة:</b>يعاني من حكة واحمرار بالعين. لا يوجد رشح أو سيلان أنفي أو حرارة. لا توجد حبوب بالجفن. توجد إفرازات ولونها مُصفرّ. لا توجد قشور على الجفن. بدأت الأعراض أمس بعين واحدة، واليوم بدأت بالعين الأخرى أيضًا.</div>
+      <table>
+        <tr><th>التقييم الإكلينيكي</th><td>وجود إفرازات صفراء (قيحية) مع انتقال الأعراض للعين الأخرى يوحي بالتهاب ملتحمة بكتيري (Bacterial Conjunctivitis) أكثر من التحسسي — غياب الرشح الأنفي المصاحب يقلل احتمال السبب التحسسي</td></tr>
+        <tr><th>خط العلاج المتوقع</th><td>قطرة عين مضاد حيوي موضعي (يتطلب غالبًا وصفة طبية إذا استمرت الأعراض)، نظافة جيدة، تجنب فرك العين ومشاركة المناشف</td></tr>
+      </table>
+      <div class="redflag-note"><b>إحالة إذا:</b> ألم شديد بالعين، تغيّر بالرؤية، حساسية شديدة للضوء، أو عدم تحسن خلال 48-72 ساعة.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE 11 -->
+<section id="case11">
+  <div class="case-card">
+    <div class="ch"><h3>الحالة 11 — ألم بالأذن (يحتاج مسكن)</h3><span class="tag">أذن أنف حنجرة</span></div>
+    <div class="cb">
+      <div class="presenting"><b>معطيات الحالة:</b>يعاني من ألم بالأذن ويحتاج مسكن. لا يوجد شمع بالأذن. لا توجد حكة بالأذن (سؤال عن قشور بسيطة وحكة ممتدة لأماكن أخرى بالجسم لاستبعاد سبب جلدي عام). النطق طبيعي. لا توجد دوخة. لا توجد إفرازات بالأذن. حالة النظافة ممتازة جدًا (استحمّ منذ يومين). العمر 28 سنة، والألم بدأ أمس. لا توجد درجة حرارة.</div>
+      <table>
+        <tr><th>التقييم الإكلينيكي</th><td>ألم أذن بدون إفرازات، حرارة، دوخة، أو شمع — يستوجب مزيدًا من الاستجواب لاستبعاد التهاب الأذن الخارجية مقابل أسباب أخرى (مثل ألم منعكس من الفك أو الأسنان)</td></tr>
+      </table>
+      <div class="redflag-note"><b>إحالة إذا:</b> وجود إفرازات، حمى، فقدان سمع، دوخة شديدة، أو عدم تحسن الألم خلال يومين — هذه الحالة بحاجة لفحص طبي لتأكيد التشخيص قبل أي علاج موضعي للأذن.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE 12 -->
+<section id="case12">
+  <div class="case-card">
+    <div class="ch"><h3>الحالة 12 — سماكة جلدية أسفل القدم (كالو - Corn)</h3><span class="tag">جلدية</span></div>
+    <div class="cb">
+      <div class="presenting"><b>معطيات الحالة:</b>تعاني من تكوّن طبقة سميكة من الجلد أسفل القدم، بسبب نعال جديد كان واسعًا قليلاً وحصل احتكاك بين باطن القدم والنعال نفسه. ليست مريضة سكر. لا توجد حكة. لا توجد رائحة.</div>
+      <table>
+        <tr><th>التقييم الإكلينيكي</th><td>كالو ناتج عن احتكاك ميكانيكي (نعال غير مناسب) — سبب واضح وغياب عوامل الخطر (السكري) يجعلها حالة مناسبة للعلاج الذاتي</td></tr>
+        <tr><th>خط العلاج</th><td>نقع القدم، فرك بالمبرد، حماية المنطقة بالفازلين، محلول كيراتوليتيك موضعي مع تغطية بلصقة طبية (نفس بروتوكول حالة الكالو في سلسلة Snap Your Beat)</td></tr>
+      </table>
+      <div class="redflag-note"><b>تذكير:</b> السؤال عن مرض السكري خطوة إلزامية قبل صرف أي علاج كيراتوليتيك حارق للكالو/الثآليل بالقدم.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SMOKING -->
+<section id="smoking">
+  <div class="case-card">
+    <div class="ch"><h3>حالة إضافية — التدخين وارتفاع ضغط الدم</h3><span class="tag">إقلاع تدخين</span></div>
+    <div class="cb">
+      <div class="presenting"><b>معطيات الحالة:</b>شخص يعاني من ارتفاع ضغط الدم، والطبيب نصحه بإيقاف التدخين. يدخّن أول سيجارة تقريبًا بعد 10 دقائق من الاستيقاظ من النوم، ويدخّن يوميًا حوالي علبتين من السجائر (كل علبة 20 سيجارة = 40 سيجارة يوميًا). يستخدم علاجًا لضغط الدم.</div>
+      <table>
+        <tr><th>التقييم الإكلينيكي</th><td>تدخين أول سيجارة خلال أقل من 30 دقيقة من الاستيقاظ مؤشر على اعتماد نيكوتيني عالي الشدة (وفق مقاييس مثل Fagerström)، وهذا يوجّه اختيار جرعة بداية أعلى لبدائل النيكوتين إن استُخدمت</td></tr>
+        <tr><th>خط الاستشارة</th><td>مناقشة خيارات الإقلاع (بدائل النيكوتين: لصقة/علكة، أو أدوية مثل Bupropion/Varenicline حسب توفرها ومناسبتها)، مع التأكيد أن التدخين يزيد مقاومة أدوية ضغط الدم لتحقيق التحكم المطلوب</td></tr>
+      </table>
+      <div class="counsel"><b>نصيحة المشورة:</b> شرح العلاقة المباشرة بين استمرار التدخين وصعوبة ضبط ضغط الدم رغم الالتزام بالدواء، كحافز إضافي للإقلاع.</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  مرجع تدريبي إكلينيكي — <b>حالات دراسية موسّعة (4-13)</b><br>
+  إعداد: فيصل عسيري (PharmD) | Smart Beats Training Program
+</footer>
+
+<a href="#case4" class="top-link" title="العودة للأعلى">↑</a>
+
+</body>
+</html>

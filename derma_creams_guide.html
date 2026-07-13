@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دليل المراهم الجلدية | مرجع الصيدلي السريع</title>
+<style>
+:root{
+  --navy:#16324f; --steel:#2c6e9b; --steel-light:#5a9bc4;
+  --bg:#f4f6f9; --card:#ffffff; --gray:#5b6b7b; --gray-light:#eef1f5;
+  --red:#c0392b; --red-bg:#fdecea; --red-border:#e74c3c;
+  --green:#1e7e4f; --green-bg:#e9f7ef; --green-border:#27ae60;
+  --amber:#a1660a; --amber-bg:#fef5e3; --amber-border:#f0a500;
+  --radius:14px; --shadow:0 4px 18px rgba(22,50,79,0.10);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:'Segoe UI', Tahoma, Arial, sans-serif;background:var(--bg);color:var(--navy);line-height:1.75;font-size:16px;}
+header.hero{background:linear-gradient(120deg, var(--navy) 0%, var(--steel) 65%, var(--steel-light) 100%);color:#fff;padding:46px 20px 60px;position:relative;overflow:hidden;text-align:center;}
+header.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 20%, rgba(255,255,255,0.12) 0, transparent 40%),radial-gradient(circle at 85% 80%, rgba(255,255,255,0.10) 0, transparent 45%);animation:drift 14s ease-in-out infinite alternate;}
+@keyframes drift{from{transform:translateY(0)}to{transform:translateY(-14px)}}
+header.hero h1{position:relative;font-size:2.1rem;margin:0 0 10px;font-weight:800;text-shadow:0 2px 10px rgba(0,0,0,0.15);}
+header.hero p.subtitle{position:relative;font-size:1.05rem;margin:0 0 6px;color:#eaf3fb;font-weight:500;}
+header.hero p.meta{position:relative;font-size:.9rem;color:#cfe3f2;margin-top:14px;}
+.badge-row{position:relative;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px;}
+.badge{background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.35);padding:6px 16px;border-radius:30px;font-size:.85rem;font-weight:600;}
+nav.toc{position:sticky;top:0;z-index:50;background:var(--navy);padding:10px 14px;display:flex;gap:8px;overflow-x:auto;white-space:nowrap;box-shadow:0 3px 10px rgba(0,0,0,0.15);}
+nav.toc a{color:#eaf3fb;text-decoration:none;font-size:.8rem;font-weight:600;padding:7px 12px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);transition:.2s;flex-shrink:0;}
+nav.toc a:hover{background:var(--steel);transform:translateY(-1px);}
+main{max-width:1000px;margin:0 auto;padding:30px 18px 80px;}
+section{margin-bottom:44px;scroll-margin-top:70px;}
+.section-title{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+.section-title .num{background:var(--navy);color:#fff;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;flex-shrink:0;box-shadow:var(--shadow);}
+.section-title h2{margin:0;font-size:1.3rem;color:var(--navy);border-bottom:3px solid var(--steel-light);padding-bottom:6px;flex:1;}
+.lead{background:var(--card);border-right:5px solid var(--steel);border-radius:var(--radius);padding:16px 20px;box-shadow:var(--shadow);margin-bottom:18px;font-size:.94rem;}
+.drug-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:18px;overflow:hidden;border-top:5px solid var(--steel);}
+.drug-card .dc-head{background:linear-gradient(90deg, var(--navy), var(--steel));color:#fff;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.drug-card .dc-head h3{margin:0;font-size:1.1rem;color:#fff;}
+.drug-card .dc-head span.otc-rx{font-size:.72rem;font-weight:800;padding:4px 12px;border-radius:20px;background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.4);}
+.dc-body{padding:16px 20px;}
+.dc-body table{width:100%;border-collapse:collapse;}
+.dc-body table td, .dc-body table th{padding:8px 10px;border-bottom:1px solid var(--gray-light);text-align:right;vertical-align:top;font-size:.9rem;}
+.dc-body table th{width:140px;color:var(--steel);font-weight:700;background:var(--gray-light);}
+.pill{display:inline-block;background:var(--steel-light);color:#fff;padding:2px 10px;border-radius:20px;font-size:.75rem;font-weight:700;margin:1px 2px;}
+.pill.dose{background:var(--navy);}
+.counsel{background:var(--green-bg);border-right:4px solid var(--green-border);border-radius:8px;padding:10px 14px;margin-top:8px;font-size:.88rem;}
+.counsel b{color:var(--green);}
+.contra{background:var(--amber-bg);border-right:4px solid var(--amber-border);border-radius:8px;padding:10px 14px;margin-top:8px;font-size:.88rem;}
+.contra b{color:var(--amber);}
+.table-wrap{overflow-x:auto;border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:20px;}
+table.big{width:100%;border-collapse:collapse;background:#fff;min-width:640px;}
+table.big thead th{background:var(--navy);color:#fff;padding:11px 13px;font-size:.85rem;text-align:right;}
+table.big tbody td{padding:10px 13px;border-bottom:1px solid var(--gray-light);font-size:.88rem;}
+table.big tbody tr:nth-child(even){background:var(--gray-light);}
+.box{border-radius:var(--radius);padding:16px 20px;margin:14px 0;box-shadow:var(--shadow);}
+.box-red{background:var(--red-bg);border:2px solid var(--red-border);}
+.box-red h4{color:var(--red);margin-top:0;}
+.box-amber{background:var(--amber-bg);border:2px solid var(--amber-border);}
+.box-amber h4{color:var(--amber);margin-top:0;}
+.flag-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
+@media(max-width:720px){.flag-grid{grid-template-columns:1fr;}}
+.flag-item{background:#fff;border-radius:10px;padding:10px 12px;border-right:4px solid var(--red-border);font-size:.85rem;}
+.mcq{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 20px;margin-bottom:14px;border-right:5px solid var(--steel);}
+.mcq .qnum{display:inline-flex;align-items:center;justify-content:center;background:var(--steel);color:#fff;width:30px;height:30px;border-radius:50%;font-weight:800;margin-left:10px;font-size:.9rem;}
+.mcq .stem{font-weight:700;color:var(--navy);}
+.mcq ol.opts{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:6px;}
+.mcq ol.opts li{background:var(--gray-light);padding:8px 13px;border-radius:8px;font-size:.9rem;}
+.mcq ol.opts li b{color:var(--steel);margin-left:6px;}
+.answer-key{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 20px;}
+.ans-item{border-bottom:1px dashed #cfd8e3;padding:12px 0;}
+.ans-item:last-child{border-bottom:none;}
+.ans-item .correct{display:inline-block;background:var(--green);color:#fff;font-weight:800;padding:3px 12px;border-radius:16px;font-size:.8rem;margin-left:8px;}
+.ans-item .why{color:var(--gray);font-size:.9rem;margin-top:5px;}
+footer{text-align:center;padding:30px 15px 50px;color:var(--gray);font-size:.85rem;}
+footer b{color:var(--navy);}
+a.top-link{position:fixed;bottom:20px;left:20px;background:var(--navy);color:#fff;width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1.3rem;box-shadow:0 4px 14px rgba(0,0,0,0.25);z-index:60;transition:.2s;}
+a.top-link:hover{background:var(--steel);transform:translateY(-3px);}
+.drug-card,.mcq,.box{animation:fadeUp .5s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>🧴 دليل المراهم الجلدية واستخداماتها</h1>
+  <p class="subtitle">مرجع سريع للمراهم والكريمات الأكثر صرفًا في الصيدلية المجتمعية</p>
+  <p class="meta">إعداد: فيصل عسيري (PharmD) | صيدلية النهدي | برنامج Smart Beats Training</p>
+  <div class="badge-row">
+    <span class="badge">🧴 14 منتج موضعي</span>
+    <span class="badge">💊 الاستخدام والتصنيف</span>
+    <span class="badge">🚩 محاذير القوة</span>
+    <span class="badge">📝 بنك أسئلة</span>
+  </div>
+</header>
+
+<nav class="toc">
+  <a href="#antifungal">🦠 مضادات فطريات</a>
+  <a href="#antibiotic">🧫 مضادات حيوية</a>
+  <a href="#corticosteroid">💊 كورتيزونات</a>
+  <a href="#wound">🩹 جروح وحروق</a>
+  <a href="#scar">✨ ندبات وحب شباب</a>
+  <a href="#comparison">📊 جدول المقارنة</a>
+  <a href="#exam">📝 بنك الأسئلة</a>
+  <a href="#answers">✅ الإجابات</a>
+</nav>
+
+<main>
+
+<div class="lead">هذا الدليل يجمّع أشهر المراهم والكريمات الموضعية التي يصادفها الصيدلي يوميًا، مصنّفة حسب آلية العمل مع أهم نقاط المقارنة (خاصة فرق قوة الكورتيزونات، وهو من أكثر الأخطاء الشائعة في الممارسة).</div>
+
+<!-- ANTIFUNGAL -->
+<section id="antifungal">
+  <div class="section-title"><span class="num">1</span><h2>مضادات الفطريات الموضعية</h2></div>
+
+  <div class="drug-card">
+    <div class="dc-head"><h3>Lamifen (لاميفين)</h3><span class="otc-rx">OTC</span></div>
+    <div class="dc-body">
+      <table>
+        <tr><th>المادة الفعالة</th><td>Terbinafine</td></tr>
+        <tr><th>الاستخدام</th><td>مضاد فطريات واسع الطيف — يُستخدم لعلاج العدوى الجلدية الفطرية مثل قدم الرياضي، سعفة الجسم، وسعفة الساق</td></tr>
+      </table>
+      <div class="counsel"><b>نصيحة المشورة:</b> يُستمر بالاستخدام لمدة كافية (عادة 2-4 أسابيع) حتى بعد اختفاء الأعراض الظاهرة لمنع الانتكاس.</div>
+    </div>
+  </div>
+
+  <div class="drug-card">
+    <div class="dc-head"><h3>Canesten (كانستين)</h3><span class="otc-rx">OTC</span></div>
+    <div class="dc-body">
+      <table>
+        <tr><th>المادة الفعالة</th><td>Clotrimazole 1%</td></tr>
+        <tr><th>الاستخدام</th><td>مضاد فطريات لعلاج الالتهابات الفطرية الجلدية والتينيا</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="drug-card">
+    <div class="dc-head"><h3>Nizoral (نيزورال)</h3><span class="otc-rx">OTC</span></div>
+    <div class="dc-body">
+      <table>
+        <tr><th>المادة الفعالة</th><td>Ketoconazole 2%</td></tr>
+        <tr><th>الاستخدام</th><td>شامبو مضاد للقشرة والالتهابات الفطرية بفروة الرأس</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ANTIBIOTIC -->
+<section id="antibiotic">
+  <div class="section-title"><span class="num">2</span><h2>المضادات الحيوية الموضعية</h2></div>
+
+  <div class="drug-card">
+    <div class="dc-head"><h3>Fucidin (فوسيدين)</h3><span class="otc-rx">Rx</span></div>
+    <div class="dc-body">
+      <table>
+        <tr><th>المادة الفعالة</th><td>Fusidic Acid 20mg/g (2%)</td></tr>
+        <tr><th>الاستخدام</th><td>مضاد حيوي موضعي لعلاج العدوى الجلدية البكتيرية مثل القوباء (Impetigo) والتهاب الجريبات والدمامل</td></tr>
+        <tr><th>ملاحظة</th><td>يُستخدم تحت إشراف طبي، للاستخدام الخارجي فقط، يُحفظ دون 30°م</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="drug-card">
+    <div class="dc-head"><h3>Fucicort (فوسيكورت)</h3><span class="otc-rx">Rx</span></div>
+    <div class="dc-body">
+      <table>
+        <tr><th>المادة الفعالة</th><td>Fusidic Acid + Betamethasone (مضاد حيوي + كورتيزون)</td></tr>
+        <tr><th>الاستخدام</th><td>لعلاج حالات الأكزيما والتهاب الجلد المصابة بعدوى بكتيرية ثانوية</td></tr>
+      </table>
+      <div class="contra"><b>تنبيه:</b> يحتوي كورتيزون بالإضافة للمضاد الحيوي — لا يُستخدم لفترات طويلة أو على مساحات واسعة دون إشراف طبي.</div>
+    </div>
+  </div>
+
+  <div class="drug-card">
+    <div class="dc-head"><h3>Baneocin (بانيوسين)</h3><span class="otc-rx">OTC/Rx</span></div>
+    <div class="dc-body">
+      <table>
+        <tr><th>المادة الفعالة</th><td>Bacitracin + Neomycin</td></tr>
+        <tr><th>الاستخدام</th><td>مضاد حيوي جلدي مركّب لعلاج الجروح والخدوش والحروق البسيطة</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- CORTICOSTEROID -->
+<section id="corticosteroid">
+  <div class="section-title"><span class="num">3</span><h2>الكورتيزونات الموضعية</h2></div>
+
+  <div class="drug-card">
+    <div class="dc-head"><h3>Dermovate (ديرموفيت)</h3><span class="otc-rx">Rx — فائق القوة</span></div>
+    <div class="dc-body">
+      <table>
+        <tr><th>المادة الفعالة</th><td>Clobetasol Propionate 0.05%</td></tr>
+        <tr><th>الاستخدام</th><td>الالتهابات الجلدية الشديدة والصدفية — أقوى تصنيف من الكورتيزونات الموضعية</td></tr>
+      </table>
+      <div class="contra"><b>تحذير هام:</b> لا يُستخدم على الوجه، الأماكن الحساسة، أو لفترات طويلة (عادة لا يتجاوز أسبوعين متواصلين) دون إشراف طبي دقيق، وممنوع عند الأطفال دون توجيه صريح من الطبيب.</div>
+    </div>
+  </div>
+
+  <div class="drug-card">
+    <div class="dc-head"><h3>Betnovate (بيتنوفيت)</h3><span class="otc-rx">Rx — قوي</span></div>
+    <div class="dc-body">
+      <table>
+        <tr><th>المادة الفعالة</th><td>Betamethasone Valerate</td></tr>
+        <tr><th>الاستخدام</th><td>الحساسية والتهابات الجلد والحكة الشديدة</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="drug-card">
+    <div class="dc-head"><h3>Locoid (لوكويد)</h3><span class="otc-rx">Rx — متوسط القوة</span></div>
+    <div class="dc-body">
+      <table>
+        <tr><th>المادة الفعالة</th><td>Hydrocortisone Butyrate</td></tr>
+        <tr><th>الاستخدام</th><td>التهابات جلدية متوسطة الشدة — أكثر أمانًا نسبيًا للاستخدام الأوسع أو الأطول من الأنواع فائقة القوة</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="box box-amber">
+    <h4>⚠️ ترتيب القوة النسبي (من الأقوى للأخف)</h4>
+    Dermovate (فائق القوة) ← Betnovate (قوي) ← Locoid (متوسط) — كلما زادت القوة، قصرت مدة الاستخدام الآمنة المسموحة ووجبت زيادة الحذر في مناطق الجلد الرقيق (الوجه، الأعطاف، الأطفال).
+  </div>
+</section>
+
+<!-- WOUND -->
+<section id="wound">
+  <div class="section-title"><span class="num">4</span><h2>الجروح والحروق والترطيب</h2></div>
+
+  <div class="drug-card">
+    <div class="dc-head"><h3>Bepanthen (بيبانثين)</h3><span class="otc-rx">OTC</span></div>
+    <div class="dc-body">
+      <table>
+        <tr><th>المادة الفعالة</th><td>Dexpanthenol</td></tr>
+        <tr><th>الاستخدام</th><td>مرطب ومهدئ للجلد — لطفح الحفاض، الجروح السطحية البسيطة، حروق الشمس، وتحسين التئام الجلد</td></tr>
+      </table>
+      <div class="counsel"><b>نصيحة المشورة:</b> خيار آمن جدًا للاستخدام المتكرر عند الرضّع لطفح الحفاض.</div>
+    </div>
+  </div>
+
+  <div class="drug-card">
+    <div class="dc-head"><h3>MEBO (ميبو)</h3><span class="otc-rx">OTC</span></div>
+    <div class="dc-body">
+      <table>
+        <tr><th>التصنيف</th><td>مرهم عشبي (Herbal Ointment)</td></tr>
+        <tr><th>الاستخدام</th><td>علاج الحروق بمختلف درجاتها (الدرجة الأولى والثانية والثالثة)، الجروح المزمنة والحادة، وقروح الفراش</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SCAR / ACNE -->
+<section id="scar">
+  <div class="section-title"><span class="num">5</span><h2>الندبات وحب الشباب والألم الموضعي</h2></div>
+
+  <div class="drug-card">
+    <div class="dc-head"><h3>Contractubex (كونتراكتوبكس)</h3><span class="otc-rx">OTC</span></div>
+    <div class="dc-body">
+      <table>
+        <tr><th>المادة الفعالة</th><td>Extractum Cepae (خلاصة البصل) + Heparin Sodium + Allantoin</td></tr>
+        <tr><th>الاستخدام</th><td>تحسين مظهر الندبات ومنع الندبات الجدرية (Keloid)، يُستخدم بعد الجراحة أو الجروح أو الحروق بعد التئام الجرح</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="drug-card">
+    <div class="dc-head"><h3>Skinoren (سكينورين)</h3><span class="otc-rx">Rx</span></div>
+    <div class="dc-body">
+      <table>
+        <tr><th>المادة الفعالة</th><td>Azelaic Acid</td></tr>
+        <tr><th>الاستخدام</th><td>علاج حب الشباب الخفيف إلى المتوسط، الوردية (Rosacea)، وفرط التصبغ الجلدي مثل الكلف والبقع العمرية</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="drug-card">
+    <div class="dc-head"><h3>Reparil-Gel N (ريباريل-جيل إن)</h3><span class="otc-rx">OTC</span></div>
+    <div class="dc-body">
+      <table>
+        <tr><th>المادة الفعالة</th><td>Escin + Diethylamine Salicylate</td></tr>
+        <tr><th>الاستخدام</th><td>مضاد للتورم والوذمة، مسكّن للألم، ومضاد للالتهابات الناتجة عن الكدمات والتهابات الأوردة السطحية</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section id="comparison">
+  <div class="section-title"><span class="num">6</span><h2>جدول المقارنة السريع</h2></div>
+  <div class="table-wrap">
+    <table class="big">
+      <thead><tr><th>المنتج</th><th>التصنيف</th><th>الاستخدام الرئيسي</th></tr></thead>
+      <tbody>
+        <tr><td>Lamifen / Canesten</td><td>مضاد فطريات</td><td>عدوى فطرية جلدية</td></tr>
+        <tr><td>Fucidin</td><td>مضاد حيوي</td><td>عدوى بكتيرية جلدية</td></tr>
+        <tr><td>Fucicort</td><td>مضاد حيوي + كورتيزون</td><td>أكزيما مصابة بعدوى ثانوية</td></tr>
+        <tr><td>Dermovate</td><td>كورتيزون فائق القوة</td><td>التهابات جلدية شديدة/صدفية</td></tr>
+        <tr><td>Betnovate</td><td>كورتيزون قوي</td><td>حساسية والتهابات جلد شديدة</td></tr>
+        <tr><td>Locoid</td><td>كورتيزون متوسط</td><td>التهابات جلدية متوسطة الشدة</td></tr>
+        <tr><td>Bepanthen</td><td>مرطب/مهدئ</td><td>طفح الحفاض، جروح سطحية</td></tr>
+        <tr><td>MEBO</td><td>مرهم عشبي</td><td>الحروق بجميع الدرجات</td></tr>
+        <tr><td>Contractubex</td><td>مضاد ندبات</td><td>تحسين مظهر الندبات</td></tr>
+        <tr><td>Skinoren</td><td>Azelaic Acid</td><td>حب الشباب وفرط التصبغ</td></tr>
+        <tr><td>Reparil-Gel N</td><td>مضاد وذمة/التهاب</td><td>الكدمات والتورم</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- MCQ -->
+<section id="exam">
+  <div class="section-title"><span class="num">7</span><h2>📝 بنك أسئلة محاكي (Practice Exam)</h2></div>
+
+  <div class="mcq"><span class="qnum">1</span><span class="stem">ما الفرق الجوهري بين Dermovate وLocoid؟</span>
+    <ol class="opts"><li>A) <b></b>كلاهما نفس القوة تمامًا</li><li>B) <b></b>Dermovate فائق القوة وLocoid متوسط القوة</li><li>C) <b></b>Locoid أقوى من Dermovate</li><li>D) <b></b>لا فرق سوى الاسم التجاري</li></ol>
+  </div>
+
+  <div class="mcq"><span class="qnum">2</span><span class="stem">ما المادة الفعالة في Fucicort، ولماذا يُستخدم بحذر أكبر من Fucidin وحده؟</span>
+    <ol class="opts"><li>A) <b></b>Fusidic Acid فقط، بدون فرق</li><li>B) <b></b>Fusidic Acid + Betamethasone، لاحتوائه على كورتيزون بالإضافة للمضاد الحيوي</li><li>C) <b></b>Clotrimazole فقط</li><li>D) <b></b>لا يحتوي أي مادة مضادة حيوية</li></ol>
+  </div>
+
+  <div class="mcq"><span class="qnum">3</span><span class="stem">ما الاستخدام الرئيسي لدواء Contractubex؟</span>
+    <ol class="opts"><li>A) <b></b>تحسين مظهر الندبات ومنع الندبات الجدرية</li><li>B) <b></b>علاج الفطريات الجلدية</li><li>C) <b></b>علاج حب الشباب فقط</li><li>D) <b></b>مضاد حيوي جهازي</li></ol>
+  </div>
+
+  <div class="mcq"><span class="qnum">4</span><span class="stem">أي المنتجات التالية آمن للاستخدام المتكرر عند الرضّع لطفح الحفاض؟</span>
+    <ol class="opts"><li>A) <b></b>Dermovate</li><li>B) <b></b>Bepanthen</li><li>C) <b></b>Fucicort</li><li>D) <b></b>Betnovate</li></ol>
+  </div>
+
+  <div class="mcq"><span class="qnum">5</span><span class="stem">ما المادة الفعالة في Skinoren، واستخداماتها؟</span>
+    <ol class="opts"><li>A) <b></b>Azelaic Acid، لحب الشباب وفرط التصبغ</li><li>B) <b></b>Clobetasol، للحروق</li><li>C) <b></b>Terbinafine، للفطريات فقط</li><li>D) <b></b>Fusidic Acid، للندبات</li></ol>
+  </div>
+</section>
+
+<!-- ANSWERS -->
+<section id="answers">
+  <div class="section-title"><span class="num">8</span><h2>✅ مفتاح الإجابات والشرح العلمي</h2></div>
+  <div class="answer-key">
+    <div class="ans-item"><b>س1:</b><span class="correct">B</span>
+      <div class="why">Dermovate (Clobetasol) يُصنّف كورتيزون فائق القوة يُستخدم لفترات قصيرة وحالات شديدة، بينما Locoid (Hydrocortisone Butyrate) متوسط القوة وأكثر أمانًا للاستخدام الأوسع.</div>
+    </div>
+    <div class="ans-item"><b>س2:</b><span class="correct">B</span>
+      <div class="why">وجود الكورتيزون (Betamethasone) بالإضافة للمضاد الحيوي في Fucicort يستوجب حذرًا أكبر بخصوص مدة الاستخدام ومساحة التطبيق، على عكس Fucidin الذي يحتوي المضاد الحيوي فقط.</div>
+    </div>
+    <div class="ans-item"><b>س3:</b><span class="correct">A</span>
+      <div class="why">Contractubex مخصص لتحسين مظهر الندبات المتكونة بعد الجروح أو الجراحة أو الحروق، ومنع تضخم الندبات الجدرية.</div>
+    </div>
+    <div class="ans-item"><b>س4:</b><span class="correct">B — Bepanthen</span>
+      <div class="why">ديكسبانثينول مادة مرطبة ومهدئة لطيفة جدًا وآمنة للاستخدام المتكرر عند الرضّع، على عكس الكورتيزونات القوية التي تحمل مخاطر عند الاستخدام المطوّل عند الأطفال.</div>
+    </div>
+    <div class="ans-item"><b>س5:</b><span class="correct">A</span>
+      <div class="why">حمض الأزيليك في Skinoren له خصائص مضادة للبكتيريا وكيراتوليتيك ومبيّضة خفيفة، مما يجعله مفيدًا لكل من حب الشباب وفرط التصبغ الجلدي مثل الكلف.</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  مرجع تدريبي إكلينيكي — <b>دليل المراهم الجلدية</b><br>
+  إعداد: فيصل عسيري (PharmD) | Smart Beats Training Program
+</footer>
+
+<a href="#antifungal" class="top-link" title="العودة للأعلى">↑</a>
+
+</body>
+</html>

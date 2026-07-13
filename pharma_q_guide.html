@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بنك أسماء تجارية شامل | مرجع اختبار الصيدلي</title>
+<style>
+:root{
+  --navy:#16324f; --steel:#2c6e9b; --steel-light:#5a9bc4;
+  --bg:#f4f6f9; --card:#ffffff; --gray:#5b6b7b; --gray-light:#eef1f5;
+  --red:#c0392b; --red-bg:#fdecea; --red-border:#e74c3c;
+  --green:#1e7e4f; --green-bg:#e9f7ef; --green-border:#27ae60;
+  --amber:#a1660a; --amber-bg:#fef5e3; --amber-border:#f0a500;
+  --radius:14px; --shadow:0 4px 18px rgba(22,50,79,0.10);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:'Segoe UI', Tahoma, Arial, sans-serif;background:var(--bg);color:var(--navy);line-height:1.75;font-size:16px;}
+header.hero{background:linear-gradient(120deg, var(--navy) 0%, var(--steel) 65%, var(--steel-light) 100%);color:#fff;padding:46px 20px 60px;position:relative;overflow:hidden;text-align:center;}
+header.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 20%, rgba(255,255,255,0.12) 0, transparent 40%),radial-gradient(circle at 85% 80%, rgba(255,255,255,0.10) 0, transparent 45%);animation:drift 14s ease-in-out infinite alternate;}
+@keyframes drift{from{transform:translateY(0)}to{transform:translateY(-14px)}}
+header.hero h1{position:relative;font-size:2.1rem;margin:0 0 10px;font-weight:800;text-shadow:0 2px 10px rgba(0,0,0,0.15);}
+header.hero p.subtitle{position:relative;font-size:1.05rem;margin:0 0 6px;color:#eaf3fb;font-weight:500;}
+header.hero p.meta{position:relative;font-size:.9rem;color:#cfe3f2;margin-top:14px;}
+.badge-row{position:relative;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px;}
+.badge{background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.35);padding:6px 16px;border-radius:30px;font-size:.85rem;font-weight:600;}
+nav.toc{position:sticky;top:0;z-index:50;background:var(--navy);padding:10px 14px;display:flex;gap:8px;overflow-x:auto;white-space:nowrap;box-shadow:0 3px 10px rgba(0,0,0,0.15);}
+nav.toc a{color:#eaf3fb;text-decoration:none;font-size:.78rem;font-weight:600;padding:7px 11px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);transition:.2s;flex-shrink:0;}
+nav.toc a:hover{background:var(--steel);transform:translateY(-1px);}
+main{max-width:1000px;margin:0 auto;padding:30px 18px 80px;}
+section{margin-bottom:46px;scroll-margin-top:70px;}
+.section-title{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+.section-title .num{background:var(--navy);color:#fff;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;flex-shrink:0;box-shadow:var(--shadow);}
+.section-title h2{margin:0;font-size:1.3rem;color:var(--navy);border-bottom:3px solid var(--steel-light);padding-bottom:6px;flex:1;}
+.lead{background:var(--card);border-right:5px solid var(--steel);border-radius:var(--radius);padding:16px 20px;box-shadow:var(--shadow);margin-bottom:18px;font-size:.94rem;}
+.table-wrap{overflow-x:auto;border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:20px;}
+table.big{width:100%;border-collapse:collapse;background:#fff;min-width:640px;}
+table.big thead th{background:var(--navy);color:#fff;padding:10px 12px;font-size:.82rem;text-align:right;}
+table.big tbody td{padding:9px 12px;border-bottom:1px solid var(--gray-light);font-size:.85rem;}
+table.big tbody tr:nth-child(even){background:var(--gray-light);}
+table.big tbody tr:hover{background:#e4edf5;}
+table.big td.trade{font-weight:800;color:var(--navy);white-space:nowrap;}
+.pill{display:inline-block;background:var(--steel-light);color:#fff;padding:2px 10px;border-radius:20px;font-size:.72rem;font-weight:700;margin:1px 2px;}
+.pill.dose{background:var(--navy);}
+.pill.warn{background:var(--red-border);}
+.box{border-radius:var(--radius);padding:16px 20px;margin:14px 0;box-shadow:var(--shadow);}
+.box-red{background:var(--red-bg);border:2px solid var(--red-border);}
+.box-red h4{color:var(--red);margin-top:0;}
+.box-amber{background:var(--amber-bg);border:2px solid var(--amber-border);}
+.box-amber h4{color:var(--amber);margin-top:0;}
+.flag-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
+@media(max-width:720px){.flag-grid{grid-template-columns:1fr;}}
+.flag-item{background:#fff;border-radius:10px;padding:10px 12px;border-right:4px solid var(--red-border);font-size:.85rem;}
+.mcq{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 20px;margin-bottom:14px;border-right:5px solid var(--steel);}
+.mcq .qnum{display:inline-flex;align-items:center;justify-content:center;background:var(--steel);color:#fff;width:30px;height:30px;border-radius:50%;font-weight:800;margin-left:10px;font-size:.9rem;}
+.mcq .stem{font-weight:700;color:var(--navy);}
+.mcq ol.opts{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:6px;}
+.mcq ol.opts li{background:var(--gray-light);padding:8px 13px;border-radius:8px;font-size:.9rem;}
+.mcq ol.opts li b{color:var(--steel);margin-left:6px;}
+.answer-key{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 20px;}
+.ans-item{border-bottom:1px dashed #cfd8e3;padding:12px 0;}
+.ans-item:last-child{border-bottom:none;}
+.ans-item .correct{display:inline-block;background:var(--green);color:#fff;font-weight:800;padding:3px 12px;border-radius:16px;font-size:.8rem;margin-left:8px;}
+.ans-item .why{color:var(--gray);font-size:.9rem;margin-top:5px;}
+footer{text-align:center;padding:30px 15px 50px;color:var(--gray);font-size:.85rem;}
+footer b{color:var(--navy);}
+a.top-link{position:fixed;bottom:20px;left:20px;background:var(--navy);color:#fff;width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1.3rem;box-shadow:0 4px 14px rgba(0,0,0,0.25);z-index:60;transition:.2s;}
+a.top-link:hover{background:var(--steel);transform:translateY(-3px);}
+.mcq,.box{animation:fadeUp .5s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>📚 بنك الأسماء التجارية الشامل</h1>
+  <p class="subtitle">78 سؤال/معلومة دوائية سريعة — من واقع أسئلة اختبارات سابقة</p>
+  <p class="meta">إعداد: فيصل عسيري (PharmD) | صيدلية النهدي | برنامج Smart Beats Training</p>
+  <div class="badge-row">
+    <span class="badge">🏷️ 60+ اسم تجاري</span>
+    <span class="badge">💊 مادة فعالة + استخدام + جرعة</span>
+    <span class="badge">📝 مراجعة سريعة</span>
+  </div>
+</header>
+
+<nav class="toc">
+  <a href="#resp">🫁 تنفسي</a>
+  <a href="#gi">🍽️ هضمي</a>
+  <a href="#cvs">❤️ قلب/دهون</a>
+  <a href="#endo">🩸 سكري</a>
+  <a href="#eye">👁️ عيون</a>
+  <a href="#derma">🧴 جلدية</a>
+  <a href="#neuro">🧠 عصبي/نفسي</a>
+  <a href="#hormonal">🌸 هرمونات</a>
+  <a href="#weight">⚖️ وزن</a>
+  <a href="#other">📋 أخرى</a>
+  <a href="#exam">📝 بنك الأسئلة</a>
+  <a href="#answers">✅ الإجابات</a>
+</nav>
+
+<main>
+
+<div class="lead">⚠️ <b>ملاحظة على المصدر:</b> هذا المحتوى مستخرج من صور أسئلة مراجعة سابقة (WhatsApp)، وبعض التفاصيل الدقيقة (كالجرعات الكاملة لبعض البنود) لم تكن واضحة بالكامل في المصدر الأصلي. تم تنظيم كل ما هو مؤكد ومتاح بدقة، وأي بند غير مكتمل المعلومة يظهر بعلامة "ⓘ يُنصح بالتأكد من المرجع الرسمي".</div>
+
+<!-- RESP -->
+<section id="resp">
+  <div class="section-title"><span class="num">1</span><h2>الجهاز التنفسي</h2></div>
+  <div class="table-wrap">
+    <table class="big">
+      <thead><tr><th>الاسم التجاري</th><th>المادة الفعالة</th><th>الاستخدام / الجرعة</th></tr></thead>
+      <tbody>
+        <tr><td class="trade">Copan</td><td>شراب للكحة اللبلابي (عشبي)</td><td>من عمر 2-6 سنوات: <span class="pill dose">5 مل مرتين يوميًا</span>؛ من عمر 6-12 سنة: <span class="pill dose">5 مل × 3</span> يوميًا</td></tr>
+        <tr><td class="trade">Spiriva</td><td>Tiotropium Bromide (LAMA)</td><td>موسّع قصبات طويل المفعول، يُستخدم عبر جهاز Handihaler، جرعة مرة واحدة يوميًا لعلاج الربو وCOPD</td></tr>
+        <tr><td class="trade">Nurofen (شراب أطفال)</td><td>Ibuprofen</td><td>للأطفال من عمر 3 أشهر، جرعة <span class="pill dose">5-10 mg/kg</span></td></tr>
+        <tr><td class="trade">Atrovent</td><td>Ipratropium Bromide</td><td>موسّع قصبات مضاد كولينرجي قصير المفعول</td></tr>
+        <tr><td class="trade">Resolv Plus</td><td>منتج مركّب لأعراض البرد</td><td>ⓘ يُنصح بالتأكد من المرجع الرسمي للتركيبة الكاملة</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- GI -->
+<section id="gi">
+  <div class="section-title"><span class="num">2</span><h2>الجهاز الهضمي</h2></div>
+  <div class="table-wrap">
+    <table class="big">
+      <thead><tr><th>الاسم التجاري</th><th>المادة الفعالة</th><th>الاستخدام / الجرعة</th></tr></thead>
+      <tbody>
+        <tr><td class="trade">Renne</td><td>مضاد حموضة (Calcium Carbonate)</td><td>علاج للحموضة — يُسبب إمساك وغازات، يُمنع لمن لديه حصوات الكلى</td></tr>
+        <tr><td class="trade">Dicoflor</td><td>بروبيوتك (Probiotic)</td><td>للرضّع والأطفال والبالغين: جرعة <span class="pill dose">5 قطرات يوميًا</span> حتى 12 سنة، والبالغين <span class="pill dose">10 قطرات يوميًا</span></td></tr>
+        <tr><td class="trade">Zofran / Zoran</td><td>Ondansetron</td><td>مضاد للغثيان، جرعة <span class="pill dose">4-8 mg</span>، يُستخدم للأطفال من عمر 6 أشهر فأكثر</td></tr>
+        <tr><td class="trade">Dexilant</td><td>Dexlansoprazole (PPI)</td><td>مثبط مضخة البروتون، جرعة <span class="pill dose">30-60 mg</span></td></tr>
+        <tr><td class="trade">Esopole</td><td>Esomeprazole (PPI)</td><td>ضمن قائمة "Smart List" لأدوية حموضة المعدة</td></tr>
+        <tr><td class="trade">Pentasa</td><td>Mesalazine</td><td>علاج التهاب القولون التقرحي ومرض كرون</td></tr>
+        <tr><td class="trade">Asaloc</td><td>Mesalazine (بديل تجاري)</td><td>ⓘ يُستخدم أيضًا لالتهاب القولون التقرحي — يُنصح تأكيد المعلومة الكاملة</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- CVS -->
+<section id="cvs">
+  <div class="section-title"><span class="num">3</span><h2>القلب والدهون</h2></div>
+  <div class="table-wrap">
+    <table class="big">
+      <thead><tr><th>الاسم التجاري</th><th>المادة الفعالة</th><th>الاستخدام / الجرعة</th></tr></thead>
+      <tbody>
+        <tr><td class="trade">Nebilet / Bivoneb</td><td>Nebivolol (بيتا بلوكر)</td><td>علاج ضغط الدم أو قصور القلب (HF)، جرعة <span class="pill dose">5 mg</span></td></tr>
+        <tr><td class="trade">Livazo</td><td>Pitavastatin</td><td>علاج الكوليسترول، جرعة <span class="pill dose">2-4 mg</span></td></tr>
+        <tr><td class="trade">Twynsta</td><td>Telmisartan + Amlodipine</td><td>علاج ضغط الدم، جرعة <span class="pill dose">80/5</span> أو <span class="pill dose">80/10 mg</span></td></tr>
+        <tr><td class="trade">Coveram</td><td>Amlodipine + Perindopril</td><td>علاج ارتفاع ضغط الدم</td></tr>
+        <tr><td class="trade">Coversyl</td><td>Perindopril (مثبط ACE)</td><td>علاج ارتفاع ضغط الدم</td></tr>
+        <tr><td class="trade">Crestor</td><td>Rosuvastatin</td><td>علاج الكوليسترول</td></tr>
+        <tr><td class="trade">Atenolol</td><td>Beta Blocker</td><td>علاج ضغط الدم ونقص تروية القلب</td></tr>
+        <tr><td class="trade">Zocor</td><td>Simvastatin</td><td>علاج الكوليسترول</td></tr>
+        <tr><td class="trade">Diovan</td><td>Valsartan</td><td>علاج ارتفاع ضغط الدم</td></tr>
+        <tr><td class="trade">Aroxia</td><td>Etoricoxib</td><td>مضاد التهاب ومسكن للآلام المزمنة مثل آلام المفاصل والظهر</td></tr>
+        <tr><td class="trade">Ponstan</td><td>Mefenamic Acid</td><td>مسكن ومضاد التهاب، خصوصًا لآلام الدورة الشهرية</td></tr>
+        <tr><td class="trade">Rapidus</td><td>Diclofenac Sodium</td><td>مسكن للألم، جرعة <span class="pill dose">50 mg</span> (الجرعة القصوى اليومية 150 mg)</td></tr>
+        <tr><td class="trade">Reparil</td><td>مضاد التهاب موضعي</td><td>جل/أقراص لعلاج التورم، الكدمات، والالتهابات الموضعية</td></tr>
+        <tr><td class="trade">Daflon</td><td>مقوٍّ للأوردة (Flavonoid)</td><td>علاج البواسير — الجرعة مهمة (راجع قسم البواسير في مرجع الجهاز الهضمي)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ENDO -->
+<section id="endo">
+  <div class="section-title"><span class="num">4</span><h2>السكري</h2></div>
+  <div class="table-wrap">
+    <table class="big">
+      <thead><tr><th>الاسم التجاري</th><th>المادة الفعالة</th><th>الاستخدام / الجرعة</th></tr></thead>
+      <tbody>
+        <tr><td class="trade">Xigduo</td><td>Dapagliflozin + Metformin</td><td>علاج السكري النوع الثاني</td></tr>
+        <tr><td class="trade">Galvus</td><td>Vildagliptin</td><td>يُستخدم لتنظيم سكر الدم في السكري النوع الثاني</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- EYE -->
+<section id="eye">
+  <div class="section-title"><span class="num">5</span><h2>العيون</h2></div>
+  <div class="table-wrap">
+    <table class="big">
+      <thead><tr><th>الاسم التجاري</th><th>المادة الفعالة</th><th>الاستخدام</th></tr></thead>
+      <tbody>
+        <tr><td class="trade">Xolamol / Cosopt</td><td>Dorzolamide + Timolol</td><td>قطرة عين لعلاج المياه الزرقاء (الجلوكوما)</td></tr>
+        <tr><td class="trade">Xalatan</td><td>Latanoprost</td><td>قطرة عين لعلاج المياه الزرقاء (الجلوكوما)</td></tr>
+        <tr><td class="trade">Xalacom</td><td>Latanoprost + Timolol</td><td>قطرة مركّبة لعلاج ارتفاع ضغط العين (الجلوكوما)</td></tr>
+        <tr><td class="trade">Tobrex</td><td>Tobramycin</td><td>قطرة/مرهم عين مضاد حيوي لعلاج التهابات العين البكتيرية</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- DERMA -->
+<section id="derma">
+  <div class="section-title"><span class="num">6</span><h2>الجلدية</h2></div>
+  <div class="table-wrap">
+    <table class="big">
+      <thead><tr><th>الاسم التجاري</th><th>المادة الفعالة</th><th>الاستخدام</th></tr></thead>
+      <tbody>
+        <tr><td class="trade">Lamisil</td><td>Terbinafine</td><td>مضاد فطريات، متوفر على شكل كريم وحبوب</td></tr>
+        <tr><td class="trade">Daktarin</td><td>Miconazole</td><td>مضاد فطريات، متوفر كريم وGel فموي</td></tr>
+        <tr><td class="trade">Fucidin</td><td>Fusidic Acid</td><td>مضاد حيوي موضعي لعلاج الالتهابات الجلدية (Fucibact، Fuciderm أسماء بديلة)</td></tr>
+        <tr><td class="trade">Difulocan</td><td>Fluconazole</td><td>مضاد فطريات فموي جهازي</td></tr>
+        <tr><td class="trade">Gyno-Miconazole (Gyno-Mikazol)</td><td>Miconazole (مهبلي)</td><td>مضاد فطريات مهبلي — بدائل: Gyno-Daktarin، Canesten (Clotrimazole)</td></tr>
+        <tr><td class="trade">Neo Healar</td><td>عشبة الروزمارينوس (مرهم عشبي)</td><td>يُخفف الألم والالتهاب، مقوٍّ للالتئام، متوفر بشكل قابل للتحميل</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- NEURO -->
+<section id="neuro">
+  <div class="section-title"><span class="num">7</span><h2>الأعصاب والصحة النفسية</h2></div>
+  <div class="table-wrap">
+    <table class="big">
+      <thead><tr><th>الاسم التجاري</th><th>المادة الفعالة</th><th>الاستخدام / الجرعة</th></tr></thead>
+      <tbody>
+        <tr><td class="trade">Relaxon</td><td>Paracetamol + Chlorzoxazone</td><td>مرخي عضلات، جرعة <span class="pill dose">حبتان × 3</span> يوميًا — يسبب النعاس</td></tr>
+        <tr><td class="trade">Apilifi</td><td>Aripiprazole</td><td>لعلاج الانفصام (Schizophrenia)، جرعة الحقنة العضلية <span class="pill dose">400 mg</span> شهريًا</td></tr>
+        <tr><td class="trade">Seroquel</td><td>Quetiapine</td><td>يُستخدم لعلاج الفصام والاكتئاب واضطراب ثنائي القطب</td></tr>
+        <tr><td class="trade">Ebixa</td><td>Memantine</td><td>علاج مرض الزهايمر</td></tr>
+        <tr><td class="trade">Keppra</td><td>Levetiracetam</td><td>علاج الصرع (Epilepsy)</td></tr>
+        <tr><td class="trade">Lamictal</td><td>Lamotrigine</td><td>علاج اضطراب ثنائي القطب (Bipolar)، جرعات <span class="pill dose">25-50-100 mg</span> — بدائل: Loxol، Lamira</td></tr>
+        <tr><td class="trade">Sepralex</td><td>Escitalopram (SSRI)</td><td>مضاد اكتئاب، يُستخدم لعلاج الاكتئاب واضطراب القلق العام</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- HORMONAL -->
+<section id="hormonal">
+  <div class="section-title"><span class="num">8</span><h2>الهرمونات وصحة الرجل والمرأة</h2></div>
+  <div class="table-wrap">
+    <table class="big">
+      <thead><tr><th>الاسم التجاري</th><th>المادة الفعالة</th><th>الاستخدام / الجرعة</th></tr></thead>
+      <tbody>
+        <tr><td class="trade">Cialis</td><td>Tadalafil</td><td>علاج ضعف الانتصاب وتضخم البروستاتا الحميد</td></tr>
+        <tr><td class="trade">Proscar</td><td>Finasteride</td><td>جرعة <span class="pill dose">5 mg</span> لعلاج تضخم البروستاتا الحميد (BPH)</td></tr>
+        <tr><td class="trade">Avodart</td><td>Dutasteride</td><td>مثبّط لتضخم البروستاتا الحميد</td></tr>
+        <tr><td class="trade">Postinor</td><td>Levonorgestrel (منع حمل طارئ)</td><td>يُؤخذ خلال 72 ساعة من العلاقة (كلما أُخذ أبكر كان أكثر فعالية)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="box box-amber">
+    <h4>⚠️ ملاحظة على حبوب منع الحمل الطارئة</h4>
+    التوعية الأساسية: تُستخدم لحالات الطوارئ فقط، ولا تُغني عن وسيلة منع حمل منتظمة، وكلما أُخذت الجرعة أقرب لوقت العلاقة كانت الفعالية أعلى.
+  </div>
+</section>
+
+<!-- WEIGHT -->
+<section id="weight">
+  <div class="section-title"><span class="num">9</span><h2>الوزن والمناعة</h2></div>
+  <div class="table-wrap">
+    <table class="big">
+      <thead><tr><th>الاسم التجاري</th><th>المادة الفعالة</th><th>الاستخدام / الجرعة</th></tr></thead>
+      <tbody>
+        <tr><td class="trade">Opteline</td><td>Garcinia Cambogia + Laminaria + Chromium</td><td>مثبط شهية يمنع تكوّن الدهون، Laminaria (عشب بحري) يشكّل جل لزج كملين كتلة، Chromium يساعد على التحكم بامتصاص الجلوكوز. يُؤخذ فيال واحد قبل الفطور، يُرج جيدًا قبل الاستخدام ويُستخدم فورًا بعد الفتح</td></tr>
+        <tr><td class="trade">Apetone</td><td>فيتامينات مركّب-B</td><td>يُستخدم لزيادة الوزن وتحسين الشهية، مكمل غذائي</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- OTHER -->
+<section id="other">
+  <div class="section-title"><span class="num">10</span><h2>مضادات حيوية وأخرى</h2></div>
+  <div class="table-wrap">
+    <table class="big">
+      <thead><tr><th>الاسم التجاري</th><th>المادة الفعالة</th><th>الاستخدام</th></tr></thead>
+      <tbody>
+        <tr><td class="trade">Maxim / Moxiflox</td><td>Moxifloxacin</td><td>مضاد حيوي من عائلة الكينولون، جرعة <span class="pill dose">400 mg</span></td></tr>
+        <tr><td class="trade">Levoflox / Tavanic</td><td>Levofloxacin</td><td>مضاد حيوي واسع الطيف من عائلة الكينولون</td></tr>
+        <tr><td class="trade">Zinnat</td><td>Cefixime / Cefuroxime</td><td>مضاد حيوي من عائلة السيفالوسبورين</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- COUNSELING NOTES FROM SOURCE -->
+<section id="counseling-notes">
+  <div class="section-title"><span class="num">11</span><h2>ملاحظات استشارية عامة من المصدر</h2></div>
+  <div class="box box-amber">
+    <h4>📌 نقاط استرشادية مهمة (كما وردت في المصدر الأصلي)</h4>
+    <div class="flag-grid">
+      <div class="flag-item"><b>Olfen Patch:</b> لا يُستخدم مع الديكلوفيناك الفموي في نفس الوقت (تجنب ازدواجية نفس المادة الفعالة)</div>
+      <div class="flag-item"><b>Chitosan / Glucomannan:</b> مكملات تُستخدم لإنقاص الوزن</div>
+      <div class="flag-item"><b>موانع الحمل:</b> راعِ عوامل الخطر والتاريخ الطبي قبل اختيار نوع الحبوب</div>
+      <div class="flag-item"><b>عند صرف أدوية السكري:</b> يجب إعطاء المريض جهاز قياس السكر وشرح طريقة استخدامه بالإضافة لجهاز ضغط الدم عند الحاجة</div>
+    </div>
+  </div>
+</section>
+
+<!-- MCQ -->
+<section id="exam">
+  <div class="section-title"><span class="num">12</span><h2>📝 بنك أسئلة محاكي (Practice Exam)</h2></div>
+
+  <div class="mcq"><span class="qnum">1</span><span class="stem">ما المادة الفعالة في دواء Spiriva وطريقة استخدامه؟</span>
+    <ol class="opts"><li>A) <b></b>Tiotropium Bromide، عبر جهاز Handihaler مرة يوميًا</li><li>B) <b></b>Salbutamol، يُستنشق عند الحاجة فقط</li><li>C) <b></b>Budesonide، بخاخ أنفي</li><li>D) <b></b>Montelukast، أقراص فموية</li></ol>
+  </div>
+
+  <div class="mcq"><span class="qnum">2</span><span class="stem">ما استخدام دواء Ondansetron (Zofran/Zoran)؟</span>
+    <ol class="opts"><li>A) <b></b>مضاد للغثيان والقيء</li><li>B) <b></b>علاج الإمساك</li><li>C) <b></b>مضاد حموضة</li><li>D) <b></b>مسكن ألم</li></ol>
+  </div>
+
+  <div class="mcq"><span class="qnum">3</span><span class="stem">ما تصنيف دواء Aroxia (Etoricoxib)؟</span>
+    <ol class="opts"><li>A) <b></b>مضاد التهاب ومسكن للآلام المزمنة</li><li>B) <b></b>مضاد حيوي</li><li>C) <b></b>مضاد حموضة</li><li>D) <b></b>مضاد فطريات</li></ol>
+  </div>
+
+  <div class="mcq"><span class="qnum">4</span><span class="stem">ما الجرعة القصوى اليومية الشائعة لدواء Diclofenac (Rapidus) المذكورة في المصدر؟</span>
+    <ol class="opts"><li>A) <b></b>50 mg فقط لا تتجاوز</li><li>B) <b></b>150 mg كحد أقصى يومي</li><li>C) <b></b>500 mg يوميًا</li><li>D) <b></b>لا يوجد حد أقصى</li></ol>
+  </div>
+
+  <div class="mcq"><span class="qnum">5</span><span class="stem">ما المادة الفعالة في Xalatan، واستخدامها؟</span>
+    <ol class="opts"><li>A) <b></b>Latanoprost، لعلاج المياه الزرقاء (الجلوكوما)</li><li>B) <b></b>Tobramycin، مضاد حيوي للعين</li><li>C) <b></b>Timolol فقط، لضغط الدم</li><li>D) <b></b>Dorzolamide، لعلاج جفاف العين</li></ol>
+  </div>
+
+  <div class="mcq"><span class="qnum">6</span><span class="stem">ما استخدام دواء Ebixa (Memantine)؟</span>
+    <ol class="opts"><li>A) <b></b>علاج مرض الزهايمر</li><li>B) <b></b>علاج الصرع</li><li>C) <b></b>علاج الاكتئاب</li><li>D) <b></b>علاج القولون العصبي</li></ol>
+  </div>
+
+  <div class="mcq"><span class="qnum">7</span><span class="stem">متى يجب أخذ حبوب منع الحمل الطارئة (Postinor) لتحقيق أعلى فعالية؟</span>
+    <ol class="opts"><li>A) <b></b>خلال 72 ساعة، وكلما أُخذت أبكر كانت أكثر فعالية</li><li>B) <b></b>بعد أسبوع من العلاقة</li><li>C) <b></b>لا علاقة للتوقيت بالفعالية</li><li>D) <b></b>خلال شهر كامل</li></ol>
+  </div>
+
+  <div class="mcq"><span class="qnum">8</span><span class="stem">ما تصنيف دواء Sepralex (Escitalopram)؟</span>
+    <ol class="opts"><li>A) <b></b>مضاد اكتئاب (SSRI)</li><li>B) <b></b>مضاد ذهان</li><li>C) <b></b>مرخي عضلات</li><li>D) <b></b>مضاد صرع</li></ol>
+  </div>
+
+  <div class="mcq"><span class="qnum">9</span><span class="stem">ما المكونات الثلاثة الأساسية في منتج Opteline لإنقاص الوزن؟</span>
+    <ol class="opts"><li>A) <b></b>Garcinia Cambogia + Laminaria + Chromium</li><li>B) <b></b>Vitamin C فقط</li><li>C) <b></b>Calcium + Iron</li><li>D) <b></b>Caffeine فقط</li></ol>
+  </div>
+
+  <div class="mcq"><span class="qnum">10</span><span class="stem">لماذا يُمنع استخدام Olfen Patch مع الديكلوفيناك الفموي في نفس الوقت؟</span>
+    <ol class="opts"><li>A) <b></b>لتجنب ازدواجية جرعة نفس المادة الفعالة</li><li>B) <b></b>لأن أحدهما مضاد حيوي</li><li>C) <b></b>لا يوجد سبب حقيقي لذلك</li><li>D) <b></b>لأنهما لعلاج مرضين مختلفين تمامًا</li></ol>
+  </div>
+</section>
+
+<!-- ANSWERS -->
+<section id="answers">
+  <div class="section-title"><span class="num">13</span><h2>✅ مفتاح الإجابات والشرح العلمي</h2></div>
+  <div class="answer-key">
+    <div class="ans-item"><b>س1:</b><span class="correct">A</span>
+      <div class="why">تيوتروبيوم بروميد موسّع قصبات مضاد كولينرجي طويل المفعول، يُعطى عبر جهاز الاستنشاق الخاص Handihaler مرة واحدة يوميًا لعلاج الربو وCOPD.</div>
+    </div>
+    <div class="ans-item"><b>س2:</b><span class="correct">A</span>
+      <div class="why">أوندانسيترون من عائلة مضادات مستقبلات 5-HT3، يُستخدم أساسًا لعلاج الغثيان والقيء، خصوصًا المرتبط بالعلاج الكيماوي أو ما بعد العمليات.</div>
+    </div>
+    <div class="ans-item"><b>س3:</b><span class="correct">A</span>
+      <div class="why">إيتوريكوكسيب مثبط انتقائي لإنزيم COX-2، يُستخدم كمضاد التهاب ومسكن للآلام المزمنة مثل آلام المفاصل والظهر.</div>
+    </div>
+    <div class="ans-item"><b>س4:</b><span class="correct">B — 150 mg كحد أقصى يومي</span>
+      <div class="why">وفق المصدر، الجرعة الفردية 50 mg لكن الحد الأقصى اليومي المذكور هو 150 mg، وهذا يتماشى مع الحدود العلاجية الشائعة للديكلوفيناك الفموي.</div>
+    </div>
+    <div class="ans-item"><b>س5:</b><span class="correct">A</span>
+      <div class="why">لاتانوبروست بروستاجلاندين تناظري يُستخدم كقطرة عين لخفض ضغط العين في علاج الجلوكوما (المياه الزرقاء).</div>
+    </div>
+    <div class="ans-item"><b>س6:</b><span class="correct">A</span>
+      <div class="why">ميمانتين مضاد لمستقبلات NMDA يُستخدم في علاج مرض الزهايمر، خصوصًا في المراحل المتوسطة إلى المتقدمة.</div>
+    </div>
+    <div class="ans-item"><b>س7:</b><span class="correct">A</span>
+      <div class="why">حبوب منع الحمل الطارئة فعاليتها ترتبط عكسيًا بالوقت — كلما أُخذت أقرب لوقت العلاقة الجنسية غير المحمية كانت الفعالية أعلى، والحد الأقصى الموصى به عادة 72 ساعة.</div>
+    </div>
+    <div class="ans-item"><b>س8:</b><span class="correct">A</span>
+      <div class="why">إسيتالوبرام من عائلة مثبطات استرداد السيروتونين الانتقائية (SSRI)، يُستخدم لعلاج الاكتئاب واضطراب القلق العام.</div>
+    </div>
+    <div class="ans-item"><b>س9:</b><span class="correct">A</span>
+      <div class="why">Garcinia Cambogia لتثبيط الشهية ومنع تكوّن الدهون، Laminaria (عشب بحري) يشكّل جلًا لزجًا يعمل كملين كتلة، وChromium يساعد على تنظيم امتصاص الجلوكوز — الثلاثة معًا يشكّلون آلية العمل الأساسية للمنتج.</div>
+    </div>
+    <div class="ans-item"><b>س10:</b><span class="correct">A</span>
+      <div class="why">كلا المنتجين يحتويان نفس المادة الفعالة (ديكلوفيناك)، والجمع بينهما يزيد خطر تجاوز الجرعة القصوى الآمنة والآثار الجانبية المرتبطة بمضادات الالتهاب غير الستيرويدية.</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  مرجع تدريبي إكلينيكي — <b>بنك الأسماء التجارية الشامل</b><br>
+  إعداد: فيصل عسيري (PharmD) | Smart Beats Training Program
+</footer>
+
+<a href="#resp" class="top-link" title="العودة للأعلى">↑</a>
+
+</body>
+</html>
